@@ -19,10 +19,10 @@ export const Route = createFileRoute("/")({
         content:
           "Three detached villas — Summer, Rainy, Winter — on Koh Samui, Thailand. A seasonal sanctuary for short escapes and long stays.",
       },
-      { property: "og:title", content: "Villa Ledu — Samui, Thailand" },
+      { property: "og:title", content: "Villa Ledu — Three Seasons, One Island, Endless Calm" },
       {
         property: "og:description",
-        content: "A trio of seasonal villas on Koh Samui. Summer. Rainy. Winter.",
+        content: "Three detached villas — Summer, Rainy, Winter — on Koh Samui, Thailand. A seasonal sanctuary for short escapes and long stays.",
       },
       { property: "og:image", content: heroAerial },
       { name: "twitter:image", content: heroAerial },

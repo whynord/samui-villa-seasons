@@ -90,10 +90,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { title: "Villa Ledu — Three Seasons, One Island, Endless Calm" },
       { name: "description", content: "Three detached villas — Summer, Rainy, Winter — on Koh Samui, Thailand. A seasonal sanctuary for short escapes and long stays." },
       { name: "author", content: "Villa Ledu" },
-      { property: "og:title", content: "Villa Ledu — Samui, Thailand" },
-      { property: "og:description", content: "A trio of seasonal villas on Koh Samui. Summer. Rainy. Winter." },
+      { property: "og:title", content: "Villa Ledu — Three Seasons, One Island, Endless Calm" },
+      { property: "og:description", content: "Three detached villas — Summer, Rainy, Winter — on Koh Samui, Thailand. A seasonal sanctuary for short escapes and long stays." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Villa Ledu — Three Seasons, One Island, Endless Calm" },
+      { name: "twitter:description", content: "Three detached villas — Summer, Rainy, Winter — on Koh Samui, Thailand. A seasonal sanctuary for short escapes and long stays." },
+      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/2c515e0e-8638-45c8-84bd-47b4f238396e" },
+      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/2c515e0e-8638-45c8-84bd-47b4f238396e" },
     ],
     links: [
       {
