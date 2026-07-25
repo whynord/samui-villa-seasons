@@ -323,8 +323,8 @@ function Guide() {
             <Subhead className="mt-16">Running a cycle</Subhead>
             <StepList
               items={[
-                ["Fill detergent", "Powder or a capsule in the compartment (max half) before each wash."],
-                ["Load & close", "Add detergent, close the door."],
+                ["Fill detergent", "(max. half)\u00a0or a capsule in the compartment before each wash."],
+                ["Close the door", ""],
                 ["Start", "Press On/Off, choose a program, press Start."],
                 ["Forgot a dish", "Open door slightly until spray stops, add the item, close — cycle resumes after ~10 seconds."],
                 ["When it finishes", "Wait 15–20 minutes for dishes to cool and dry. Unload the lower basket first."],
