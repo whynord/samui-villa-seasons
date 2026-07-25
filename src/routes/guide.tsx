@@ -378,6 +378,7 @@ function Guide() {
           {/* 06 Washing Machine */}
           <ApplianceHeader appliance={appliances[5]} />
           <div id="washer" className="-mt-24 pt-24 scroll-mt-24">
+            <Figure src={washingMachineFig.url} alt="Sixteen wash programmes icons" caption="16 wash programmes · Cotton · Cotton Eco · Rapid · Mix · Delicate · Wool · Rinse & Spin · Spin · Tub Wash · Underwear · Jeans · Baby Care · Duvet · Color · Shirt · Hygiene" accent="rainy" />
             <Subhead>Before each wash</Subhead>
             <BulletList
               items={[
