@@ -452,6 +452,32 @@ function Guide() {
 
 /* ---------- Building blocks ---------- */
 
+function Figure({
+  src,
+  alt,
+  caption,
+  accent = "winter",
+}: {
+  src: string;
+  alt: string;
+  caption?: string;
+  accent?: "summer" | "rainy" | "winter";
+}) {
+  return (
+    <figure className="mb-12 -mx-2 md:mx-0">
+      <div className={`rounded-sm border border-ink/10 ${accentBg[accent]}/40 p-6 md:p-10 flex items-center justify-center`}>
+        <img src={src} alt={alt} loading="lazy" className="w-full max-w-2xl h-auto object-contain mix-blend-multiply" />
+      </div>
+      {caption && (
+        <figcaption className={`mt-3 text-[11px] tracking-[0.25em] uppercase ${accentClass[accent]}`}>
+          {caption}
+        </figcaption>
+      )}
+    </figure>
+  );
+}
+
+
 function ApplianceHeader({ appliance }: { appliance: Appliance }) {
   const Icon = appliance.icon;
   return (
