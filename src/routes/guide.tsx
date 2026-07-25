@@ -186,6 +186,7 @@ function Guide() {
           {/* 01 Air Conditioner */}
           <ApplianceHeader appliance={appliances[0]} />
           <div id="aircon" className="-mt-24 pt-24 scroll-mt-24">
+            <Figure src={airConditionerFig.url} alt="Air conditioner remote — Power, Mode, Temp Up/Down controls" caption="Remote control · Power · Mode (iAUTO-X → COOL → DRY) · Temp Up / Down" accent="winter" />
             <Subhead>Everyday use</Subhead>
             <StepList
               items={[
