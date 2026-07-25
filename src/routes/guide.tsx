@@ -12,6 +12,11 @@ import {
 } from "lucide-react";
 
 import logo from "@/assets/villa-ledu-logo.png";
+import airConditionerFig from "@/assets/guide/air-conditioner.png.asset.json";
+import microwaveFig from "@/assets/guide/microwave.png.asset.json";
+import inductionFig from "@/assets/guide/induction-stove.png.asset.json";
+import dishwasherFig from "@/assets/guide/dishwasher.png.asset.json";
+import washingMachineFig from "@/assets/guide/washing-machine.png.asset.json";
 
 export const Route = createFileRoute("/guide")({
   head: () => ({
