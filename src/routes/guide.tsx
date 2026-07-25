@@ -291,6 +291,7 @@ function Guide() {
           {/* 04 Dishwasher */}
           <ApplianceHeader appliance={appliances[3]} />
           <div id="dishwasher" className="-mt-24 pt-24 scroll-mt-24">
+            <Figure src={dishwasherFig.url} alt="Dishwasher control panel with numbered buttons and indicators" caption="Control panel · 1 On/Off · 2 Delay · 3 Power · 4 Delay (3/6/9/12h) · 5 Salt & rinse aid · 6 Half load · 7 Programs · 8 Half load button · 9 Program" accent="rainy" />
             <Callout tone="soft">
               Detergent powder and capsules are under the kitchen sink. A quick
               rinse of plates and pots before loading makes for a better wash.
