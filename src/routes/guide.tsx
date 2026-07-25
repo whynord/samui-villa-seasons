@@ -12,6 +12,11 @@ import {
 } from "lucide-react";
 
 import logo from "@/assets/villa-ledu-logo.png";
+import airConditionerFig from "@/assets/guide/air-conditioner.png.asset.json";
+import microwaveFig from "@/assets/guide/microwave.png.asset.json";
+import inductionFig from "@/assets/guide/induction-stove.png.asset.json";
+import dishwasherFig from "@/assets/guide/dishwasher.png.asset.json";
+import washingMachineFig from "@/assets/guide/washing-machine.png.asset.json";
 
 export const Route = createFileRoute("/guide")({
   head: () => ({
@@ -181,6 +186,7 @@ function Guide() {
           {/* 01 Air Conditioner */}
           <ApplianceHeader appliance={appliances[0]} />
           <div id="aircon" className="-mt-24 pt-24 scroll-mt-24">
+            <Figure src={airConditionerFig.url} alt="Air conditioner remote — Power, Mode, Temp Up/Down controls" caption="Remote control · Power · Mode (iAUTO-X → COOL → DRY) · Temp Up / Down" accent="winter" />
             <Subhead>Everyday use</Subhead>
             <StepList
               items={[
@@ -206,6 +212,7 @@ function Guide() {
           {/* 02 Microwave */}
           <ApplianceHeader appliance={appliances[1]} />
           <div id="microwave" className="-mt-24 pt-24 scroll-mt-24">
+            <Figure src={microwaveFig.url} alt="Microwave control panel with Microwave and Function keys" caption="Control panel · Microwave (≋) · Function (F) · Time − / + · Start" accent="summer" />
             <Callout tone="warn">
               Never use metal, foil, or items with metallic trim — this can cause
               arcing or fire. Not sure a container is safe? Microwave it empty
@@ -245,6 +252,7 @@ function Guide() {
           {/* 03 Induction */}
           <ApplianceHeader appliance={appliances[2]} />
           <div id="induction" className="-mt-24 pt-24 scroll-mt-24">
+            <Figure src={inductionFig.url} alt="Induction stove control layout with four zones and power slider" caption="Four cooking zones · Power ⏻ · Lock · Power slider − / + · Boost (P) · Timer" accent="summer" />
             <Subhead>Getting started</Subhead>
             <StepList
               items={[
@@ -283,6 +291,7 @@ function Guide() {
           {/* 04 Dishwasher */}
           <ApplianceHeader appliance={appliances[3]} />
           <div id="dishwasher" className="-mt-24 pt-24 scroll-mt-24">
+            <Figure src={dishwasherFig.url} alt="Dishwasher control panel with numbered buttons and indicators" caption="Control panel · 1 On/Off · 2 Delay · 3 Power · 4 Delay (3/6/9/12h) · 5 Salt & rinse aid · 6 Half load · 7 Programs · 8 Half load button · 9 Program" accent="rainy" />
             <Callout tone="soft">
               Detergent powder and capsules are under the kitchen sink. A quick
               rinse of plates and pots before loading makes for a better wash.
@@ -369,6 +378,7 @@ function Guide() {
           {/* 06 Washing Machine */}
           <ApplianceHeader appliance={appliances[5]} />
           <div id="washer" className="-mt-24 pt-24 scroll-mt-24">
+            <Figure src={washingMachineFig.url} alt="Sixteen wash programmes icons" caption="16 wash programmes · Cotton · Cotton Eco · Rapid · Mix · Delicate · Wool · Rinse & Spin · Spin · Tub Wash · Underwear · Jeans · Baby Care · Duvet · Color · Shirt · Hygiene" accent="rainy" />
             <Subhead>Before each wash</Subhead>
             <BulletList
               items={[
@@ -441,6 +451,32 @@ function Guide() {
 }
 
 /* ---------- Building blocks ---------- */
+
+function Figure({
+  src,
+  alt,
+  caption,
+  accent = "winter",
+}: {
+  src: string;
+  alt: string;
+  caption?: string;
+  accent?: "summer" | "rainy" | "winter";
+}) {
+  return (
+    <figure className="mb-12 -mx-2 md:mx-0">
+      <div className={`rounded-sm border border-ink/10 ${accentBg[accent]}/40 p-6 md:p-10 flex items-center justify-center`}>
+        <img src={src} alt={alt} loading="lazy" className="w-full max-w-2xl h-auto object-contain mix-blend-multiply" />
+      </div>
+      {caption && (
+        <figcaption className={`mt-3 text-[11px] tracking-[0.25em] uppercase ${accentClass[accent]}`}>
+          {caption}
+        </figcaption>
+      )}
+    </figure>
+  );
+}
+
 
 function ApplianceHeader({ appliance }: { appliance: Appliance }) {
   const Icon = appliance.icon;
