@@ -212,6 +212,7 @@ function Guide() {
           {/* 02 Microwave */}
           <ApplianceHeader appliance={appliances[1]} />
           <div id="microwave" className="-mt-24 pt-24 scroll-mt-24">
+            <Figure src={microwaveFig.url} alt="Microwave control panel with Microwave and Function keys" caption="Control panel · Microwave (≋) · Function (F) · Time − / + · Start" accent="summer" />
             <Callout tone="warn">
               Never use metal, foil, or items with metallic trim — this can cause
               arcing or fire. Not sure a container is safe? Microwave it empty
