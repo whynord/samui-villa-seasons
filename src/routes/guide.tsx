@@ -252,6 +252,7 @@ function Guide() {
           {/* 03 Induction */}
           <ApplianceHeader appliance={appliances[2]} />
           <div id="induction" className="-mt-24 pt-24 scroll-mt-24">
+            <Figure src={inductionFig.url} alt="Induction stove control layout with four zones and power slider" caption="Four cooking zones · Power ⏻ · Lock · Power slider − / + · Boost (P) · Timer" accent="summer" />
             <Subhead>Getting started</Subhead>
             <StepList
               items={[
