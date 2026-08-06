@@ -442,7 +442,7 @@ function Guide() {
             </p>
           </div>
           <div className="text-[10px] tracking-[0.35em] uppercase text-ink/40">
-            ฤดู · Guest reference · Koh Samui
+            Guest reference · Koh Samui
           </div>
         </div>
       </footer>

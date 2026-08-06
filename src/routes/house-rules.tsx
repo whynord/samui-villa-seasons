@@ -176,7 +176,7 @@ function HouseRules() {
 
       <footer className="px-6 md:px-10 py-10 border-t border-ink/10">
         <div className="max-w-[1400px] mx-auto flex flex-wrap items-center justify-between gap-4 text-[11px] tracking-[0.25em] uppercase text-ink/40">
-          <span>Villa Ledu · ฤดู · Koh Samui</span>
+          <span>Villa Ledu · Koh Samui</span>
           <Link to="/guide" className="hover:text-ink transition-colors">
             Appliance Guide →
           </Link>
