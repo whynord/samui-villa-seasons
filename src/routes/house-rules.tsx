@@ -165,19 +165,13 @@ function HouseRules() {
       {/* Closing */}
       <section className="border-t border-ink/10 bg-winter-light/30 px-6 md:px-10 py-16 md:py-24">
         <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-[1fr_360px] gap-12 lg:gap-20">
-          <div className="flex gap-5">
-            <Heart className="w-5 h-5 mt-2 text-winter shrink-0" />
-            <p className="font-serif italic text-xl md:text-2xl leading-snug text-ink/85 text-pretty">
-              {content.thanks}
-            </p>
-          </div>
+          <p className="font-serif italic text-xl md:text-2xl leading-snug text-ink/85 text-pretty">
+            {content.thanks}
+          </p>
           <div className="border-t lg:border-t-0 lg:border-l border-ink/10 pt-8 lg:pt-0 lg:pl-12">
-            <div className="flex items-center gap-3 text-rainy">
-              <PhoneCall className="w-4 h-4" />
-              <span className="text-[11px] tracking-[0.35em] uppercase font-medium">
-                {content.helpTitle}
-              </span>
-            </div>
+            <span className="text-[11px] tracking-[0.35em] uppercase font-medium text-rainy">
+              {content.helpTitle}
+            </span>
             <p className="mt-4 text-stone-500 leading-relaxed text-[15px] text-pretty">
               {content.helpText}
             </p>
