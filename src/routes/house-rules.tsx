@@ -140,30 +140,22 @@ function HouseRules() {
           {content.items.map((item, i) => {
             const accent = accents[i % accents.length];
             return (
-              <li key={`${lang}-${i}`} className="flex gap-5 min-w-0">
-                <span
-                  className={`shrink-0 w-11 h-11 rounded-full grid place-items-center text-lg ${accentBg[accent]}`}
-                  aria-hidden="true"
-                >
-                  {item.emoji}
-                </span>
-                <div className="min-w-0">
-                  <div className="flex items-baseline gap-3">
-                    <span
-                      className={`text-[10px] tracking-[0.25em] ${accentClass[accent]}`}
-                    >
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
-                    <h2 className="font-serif text-xl md:text-2xl leading-tight">
-                      {item.title || item.text}
-                    </h2>
-                  </div>
-                  {item.title && (
-                    <p className="mt-3 text-stone-500 leading-relaxed text-[15px] text-pretty">
-                      {item.text}
-                    </p>
-                  )}
+              <li key={`${lang}-${i}`} className="min-w-0">
+                <div className="flex items-baseline gap-3">
+                  <span
+                    className={`text-[10px] tracking-[0.25em] ${accentClass[accent]}`}
+                  >
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <h2 className="font-serif text-xl md:text-2xl leading-tight">
+                    {item.title || item.text}
+                  </h2>
                 </div>
+                {item.title && (
+                  <p className="mt-3 text-stone-500 leading-relaxed text-[15px] text-pretty">
+                    {item.text}
+                  </p>
+                )}
               </li>
             );
           })}
