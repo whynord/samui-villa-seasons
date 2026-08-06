@@ -1,6 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
-import { Heart, PhoneCall } from "lucide-react";
 
 import logo from "@/assets/villa-ledu-logo.png";
 import { houseRules } from "@/data/house-rules";
