@@ -615,7 +615,7 @@ function Index() {
         </div>
         <div className="max-w-6xl mx-auto mt-16 pt-6 border-t border-ink/5 flex justify-between text-[10px] uppercase tracking-[0.3em] text-ink/40">
           <span>© {new Date().getFullYear()} Villa Ledu</span>
-          <span>ฤดู · Made in Samui</span>
+          <span>Made in Samui</span>
         </div>
       </footer>
     </div>
