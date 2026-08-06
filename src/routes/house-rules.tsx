@@ -56,11 +56,6 @@ const accentClass = {
   rainy: "text-rainy",
   winter: "text-winter",
 } as const;
-const accentBg = {
-  summer: "bg-summer-light",
-  rainy: "bg-rainy-light",
-  winter: "bg-winter-light",
-} as const;
 
 function HouseRules() {
   const [lang, setLang] = useState<string>("en");
