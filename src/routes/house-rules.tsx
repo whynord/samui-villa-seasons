@@ -1,6 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
-import { Heart, PhoneCall } from "lucide-react";
 
 import logo from "@/assets/villa-ledu-logo.png";
 import { houseRules } from "@/data/house-rules";
@@ -56,11 +55,6 @@ const accentClass = {
   summer: "text-summer",
   rainy: "text-rainy",
   winter: "text-winter",
-} as const;
-const accentBg = {
-  summer: "bg-summer-light",
-  rainy: "bg-rainy-light",
-  winter: "bg-winter-light",
 } as const;
 
 function HouseRules() {
@@ -141,30 +135,22 @@ function HouseRules() {
           {content.items.map((item, i) => {
             const accent = accents[i % accents.length];
             return (
-              <li key={`${lang}-${i}`} className="flex gap-5 min-w-0">
-                <span
-                  className={`shrink-0 w-11 h-11 rounded-full grid place-items-center text-lg ${accentBg[accent]}`}
-                  aria-hidden="true"
-                >
-                  {item.emoji}
-                </span>
-                <div className="min-w-0">
-                  <div className="flex items-baseline gap-3">
-                    <span
-                      className={`text-[10px] tracking-[0.25em] ${accentClass[accent]}`}
-                    >
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
-                    <h2 className="font-serif text-xl md:text-2xl leading-tight">
-                      {item.title || item.text}
-                    </h2>
-                  </div>
-                  {item.title && (
-                    <p className="mt-3 text-stone-500 leading-relaxed text-[15px] text-pretty">
-                      {item.text}
-                    </p>
-                  )}
+              <li key={`${lang}-${i}`} className="min-w-0">
+                <div className="flex items-baseline gap-3">
+                  <span
+                    className={`text-[10px] tracking-[0.25em] ${accentClass[accent]}`}
+                  >
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <h2 className="font-serif text-xl md:text-2xl leading-tight">
+                    {item.title || item.text}
+                  </h2>
                 </div>
+                {item.title && (
+                  <p className="mt-3 text-stone-500 leading-relaxed text-[15px] text-pretty">
+                    {item.text}
+                  </p>
+                )}
               </li>
             );
           })}
@@ -174,19 +160,13 @@ function HouseRules() {
       {/* Closing */}
       <section className="border-t border-ink/10 bg-winter-light/30 px-6 md:px-10 py-16 md:py-24">
         <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-[1fr_360px] gap-12 lg:gap-20">
-          <div className="flex gap-5">
-            <Heart className="w-5 h-5 mt-2 text-winter shrink-0" />
-            <p className="font-serif italic text-xl md:text-2xl leading-snug text-ink/85 text-pretty">
-              {content.thanks}
-            </p>
-          </div>
+          <p className="font-serif italic text-xl md:text-2xl leading-snug text-ink/85 text-pretty">
+            {content.thanks}
+          </p>
           <div className="border-t lg:border-t-0 lg:border-l border-ink/10 pt-8 lg:pt-0 lg:pl-12">
-            <div className="flex items-center gap-3 text-rainy">
-              <PhoneCall className="w-4 h-4" />
-              <span className="text-[11px] tracking-[0.35em] uppercase font-medium">
-                {content.helpTitle}
-              </span>
-            </div>
+            <span className="text-[11px] tracking-[0.35em] uppercase font-medium text-rainy">
+              {content.helpTitle}
+            </span>
             <p className="mt-4 text-stone-500 leading-relaxed text-[15px] text-pretty">
               {content.helpText}
             </p>
