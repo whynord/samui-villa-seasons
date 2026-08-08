@@ -236,12 +236,13 @@ function Index() {
       {/* Hero */}
       <section id="top" className="hero relative h-screen min-h-[640px] w-full overflow-hidden">
         <div className="absolute inset-0">
-          <img
-            ref={heroImg}
-            src={heroAerial}
-            alt="Villa Ledu — aerial view at dusk over Koh Samui"
-            width={1920}
-            height={1280}
+          <video
+            ref={heroVideo}
+            src={heroVideoAsset.url}
+            autoPlay
+            muted
+            loop
+            playsInline
             className="w-full h-[115%] object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-ink/30 via-ink/10 to-ink/60" />
