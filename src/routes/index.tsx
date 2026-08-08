@@ -89,7 +89,7 @@ const villas: Villa[] = [
 
 function Index() {
   const main = useRef<HTMLDivElement>(null);
-  const heroImg = useRef<HTMLImageElement>(null);
+  const heroVideo = useRef<HTMLVideoElement>(null);
   const heroTitle = useRef<HTMLHeadingElement>(null);
   const [navSolid, setNavSolid] = useState(false);
 
