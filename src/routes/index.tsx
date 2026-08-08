@@ -109,8 +109,8 @@ function Index() {
         .from(".hero-scroll", { opacity: 0, duration: 1 }, "-=0.4");
 
       // Hero parallax
-      if (heroImg.current) {
-        gsap.to(heroImg.current, {
+      if (heroVideo.current) {
+        gsap.to(heroVideo.current, {
           yPercent: 18,
           ease: "none",
           scrollTrigger: {
