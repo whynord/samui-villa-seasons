@@ -214,7 +214,7 @@ function Index() {
             <span className="hidden sm:flex flex-col leading-none">
               <span className="font-serif italic text-lg">Villa Ledu</span>
               <span className="text-[10px] tracking-[0.3em] uppercase text-ink/50 mt-1">
-                ฤดู · Samui
+                Samui
               </span>
             </span>
           </a>
