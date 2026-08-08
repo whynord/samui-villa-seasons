@@ -5,6 +5,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import logo from "@/assets/villa-ledu-logo.png";
 import heroAerial from "@/assets/hero-aerial.jpg";
+import heroVideoAsset from "@/assets/interior-villa-ledu-hero.mp4.asset.json";
 import villaSummer from "@/assets/villa-summer.jpg";
 import villaRainy from "@/assets/villa-rainy.jpg";
 import villaWinter from "@/assets/villa-winter.jpg";
@@ -88,7 +89,7 @@ const villas: Villa[] = [
 
 function Index() {
   const main = useRef<HTMLDivElement>(null);
-  const heroImg = useRef<HTMLImageElement>(null);
+  const heroVideo = useRef<HTMLVideoElement>(null);
   const heroTitle = useRef<HTMLHeadingElement>(null);
   const [navSolid, setNavSolid] = useState(false);
 
@@ -108,8 +109,8 @@ function Index() {
         .from(".hero-scroll", { opacity: 0, duration: 1 }, "-=0.4");
 
       // Hero parallax
-      if (heroImg.current) {
-        gsap.to(heroImg.current, {
+      if (heroVideo.current) {
+        gsap.to(heroVideo.current, {
           yPercent: 18,
           ease: "none",
           scrollTrigger: {
@@ -235,12 +236,13 @@ function Index() {
       {/* Hero */}
       <section id="top" className="hero relative h-screen min-h-[640px] w-full overflow-hidden">
         <div className="absolute inset-0">
-          <img
-            ref={heroImg}
-            src={heroAerial}
-            alt="Villa Ledu — aerial view at dusk over Koh Samui"
-            width={1920}
-            height={1280}
+          <video
+            ref={heroVideo}
+            src={heroVideoAsset.url}
+            autoPlay
+            muted
+            loop
+            playsInline
             className="w-full h-[115%] object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-ink/30 via-ink/10 to-ink/60" />
