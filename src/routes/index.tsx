@@ -175,13 +175,6 @@ function Index() {
         });
       });
 
-      // Marquee
-      gsap.to(".marquee-track", {
-        xPercent: -50,
-        ease: "none",
-        duration: 30,
-        repeat: -1,
-      });
     }, main);
 
     const onScroll = () => setNavSolid(window.scrollY > 60);
@@ -267,21 +260,6 @@ function Index() {
         </div>
       </section>
 
-      {/* Marquee */}
-      <section className="border-y border-ink/10 py-6 overflow-hidden bg-cream/60">
-        <div className="marquee-track flex gap-16 whitespace-nowrap text-2xl md:text-3xl font-serif italic">
-          {Array.from({ length: 2 }).flatMap((_, i) =>
-            ["Summer · ฤดูร้อน", "Rainy · ฤดูฝน", "Winter · ฤดูหนาว", "Villa Ledu"].map(
-              (txt, j) => (
-                <span key={`${i}-${j}`} className="flex items-center gap-16 text-ink/70">
-                  {txt}
-                  <span className="text-summer">◇</span>
-                </span>
-              ),
-            ),
-          )}
-        </div>
-      </section>
 
       {/* Philosophy */}
       <section id="philosophy" className="py-32 md:py-44 px-6">
