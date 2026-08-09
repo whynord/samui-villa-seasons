@@ -35,11 +35,11 @@ const languages = [
 ] as const;
 
 const eyebrow: Record<string, string> = {
-  en: "Guest Reference · ฤดู",
-  de: "Gästeinformation · ฤดู",
-  es: "Información para huéspedes · ฤดู",
-  fr: "Informations invités · ฤดู",
-  ja: "ゲスト案内 · ฤดู",
+  en: "GUEST REFERENCE",
+  de: "Gästeinformation",
+  es: "Información para huéspedes",
+  fr: "Informations invités",
+  ja: "ゲスト案内",
 };
 
 const intro: Record<string, string> = {
@@ -71,7 +71,7 @@ function HouseRules() {
             <span className="hidden sm:flex flex-col leading-none">
               <span className="font-serif italic text-lg">Villa Ledu</span>
               <span className="text-[10px] tracking-[0.3em] uppercase text-ink/50 mt-1">
-                House Guidelines
+                SAMUI
               </span>
             </span>
           </Link>
