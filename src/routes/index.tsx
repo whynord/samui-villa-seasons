@@ -88,6 +88,59 @@ const villas: Villa[] = [
   },
 ];
 
+type ExploreCategory = {
+  n: string;
+  c: "summer" | "rainy" | "winter";
+  t: string;
+  d: string;
+  tags: string;
+};
+
+const exploreItems: ExploreCategory[] = [
+  {
+    n: "01",
+    c: "summer",
+    t: "Scenic Samui",
+    d: "Panoramic viewpoints and quiet coves away from the resort strip.",
+    tags: "Lad Koh Viewpoint · Silver Beach · Coral Cove · Sunset viewpoints",
+  },
+  {
+    n: "02",
+    c: "rainy",
+    t: "Island Adventures",
+    d: "Boat days to the marine park and the islands just offshore.",
+    tags: "Ang Thong National Marine Park · Koh Tao · Koh Nang Yuan · Koh Tan · Koh Madsum",
+  },
+  {
+    n: "03",
+    c: "winter",
+    t: "Culture & Landmarks",
+    d: "Temples, shrines, and Samui's most photographed sights.",
+    tags: "Big Buddha · Wat Plai Laem · Secret Buddha Garden · Hin Ta & Hin Yai",
+  },
+  {
+    n: "04",
+    c: "summer",
+    t: "Nature & Wellness",
+    d: "Waterfalls, jungle trails, and slower afternoons.",
+    tags: "Na Muang Waterfalls · Jungle walks · Ethical elephant sanctuaries · Thai massage · Quiet beaches",
+  },
+  {
+    n: "05",
+    c: "rainy",
+    t: "Food & Markets",
+    d: "Night markets, seafood, and tables with their feet in the sand.",
+    tags: "Fisherman's Village · Lamai Night Market · Chaweng food spots · Seafood · Beachside dining",
+  },
+  {
+    n: "06",
+    c: "winter",
+    t: "Evenings Out",
+    d: "Where the island comes alive after dark.",
+    tags: "Beach bars · Fire shows · Live music · Chaweng nightlife · Lamai's relaxed scene",
+  },
+];
+
 function Index() {
   const main = useRef<HTMLDivElement>(null);
   const heroVideo = useRef<HTMLVideoElement>(null);
@@ -200,7 +253,7 @@ function Index() {
           <div className="hidden md:flex gap-10 text-[11px] font-medium uppercase tracking-[0.25em]">
             <a href="#philosophy" className="hover:text-summer transition-colors">Philosophy</a>
             <a href="#villas" className="hover:text-rainy transition-colors">Villas</a>
-            <a href="#experience" className="hover:text-winter transition-colors">Stay</a>
+            <a href="#explore" className="hover:text-winter transition-colors">Explore</a>
             <a href="#contact" className="hover:opacity-60 transition-opacity">Contact</a>
           </div>
           <a
@@ -316,74 +369,55 @@ function Index() {
       </section>
 
 
-      {/* Experience / Long stay */}
-      <section id="experience" className="bg-ink text-cream py-32 md:py-44 px-6 overflow-hidden">
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 md:gap-24 items-center">
-          <div>
-            <span className="reveal text-summer font-medium tracking-[0.35em] uppercase text-[11px] mb-8 block">
-              The Stay
-            </span>
-            <h2 className="reveal font-serif text-4xl md:text-6xl leading-[1.05] mb-10">
-              Your seasonal home in Samui — for a night, a month, a chapter.
-            </h2>
-            <ul className="space-y-8">
-              {[
-                {
-                  n: "01",
-                  c: "summer",
-                  t: "Private Infinity Pool",
-                  d: "Each villa opens onto its own salt-water pool angled at the Gulf of Thailand.",
-                },
-                {
-                  n: "02",
-                  c: "rainy",
-                  t: "Chef on Demand",
-                  d: "A resident Thai chef can be booked nightly — market produce, sea to table.",
-                },
-                {
-                  n: "03",
-                  c: "winter",
-                  t: "Long-stay Residency",
-                  d: "Fiber uplink, weekly housekeeping, and concierge for stays of 30+ nights.",
-                },
-              ].map((it) => (
-                <li key={it.n} className="reveal flex gap-6">
-                  <span
-                    className="font-serif text-2xl mt-1"
-                    style={{ color: `var(--${it.c})` }}
-                  >
-                    {it.n}
-                  </span>
-                  <div>
-                    <p className="text-cream font-medium mb-2 uppercase tracking-[0.18em] text-sm">
-                      {it.t}
-                    </p>
-                    <p className="text-cream/60 text-sm leading-relaxed max-w-md">
-                      {it.d}
-                    </p>
-                  </div>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="relative reveal">
-            <img
-              src={experienceEvening}
-              alt="Villa Ledu — evening pool deck"
-              width={1200}
-              height={1600}
-              loading="lazy"
-              className="w-full aspect-[4/5] object-cover"
-            />
-            <div className="absolute -bottom-8 -left-6 md:-left-12 w-44 md:w-56 aspect-square bg-summer text-cream p-6 md:p-8 flex flex-col justify-between">
-              <span className="text-[10px] uppercase tracking-[0.3em] opacity-80">
-                Now booking
+      {/* Explore / Things to do on Samui */}
+      <section id="explore" className="bg-ink text-cream py-32 md:py-44 px-6 overflow-hidden">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-16 md:gap-24 items-center mb-20 md:mb-24">
+            <div>
+              <span className="reveal text-summer font-medium tracking-[0.35em] uppercase text-[11px] mb-8 block">
+                Beyond the Villa
               </span>
-              <p className="font-serif italic text-xl md:text-2xl leading-tight">
-                Rainy season<br />residencies open
+              <h2 className="reveal font-serif text-4xl md:text-6xl leading-[1.05] mb-8">
+                Samui, at your own pace.
+              </h2>
+              <p className="reveal text-cream/60 text-base md:text-lg leading-relaxed max-w-md">
+                A short list of what's worth the drive — quiet viewpoints, island
+                boat days, temples, waterfalls, and where to eat once the sun
+                goes down. Ask your host for tide times, opening hours, or a
+                driver recommendation.
               </p>
             </div>
+
+            <div className="relative reveal">
+              <img
+                src={experienceEvening}
+                alt="Koh Samui — evening on the island"
+                width={1200}
+                height={1600}
+                loading="lazy"
+                className="w-full aspect-[4/5] object-cover"
+              />
+            </div>
+          </div>
+
+          <div className="reveal grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-cream/10 border border-cream/10">
+            {exploreItems.map((it) => (
+              <div key={it.n} className="bg-ink p-8 md:p-10 flex flex-col gap-4">
+                <span
+                  className="font-serif text-2xl"
+                  style={{ color: `var(--${it.c})` }}
+                >
+                  {it.n}
+                </span>
+                <h3 className="text-cream font-medium uppercase tracking-[0.14em] text-sm">
+                  {it.t}
+                </h3>
+                <p className="text-cream/60 text-sm leading-relaxed">{it.d}</p>
+                <p className="text-cream/40 text-xs leading-relaxed mt-auto pt-4 border-t border-cream/10">
+                  {it.tags}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -549,3 +583,4 @@ function Index() {
     </div>
   );
 }
+
