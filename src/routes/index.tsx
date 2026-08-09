@@ -242,7 +242,7 @@ function Index() {
 
         <div className="relative z-10 h-full flex flex-col items-center justify-center px-6 text-center text-cream">
           <span className="hero-eyebrow text-[10px] sm:text-xs tracking-[0.45em] uppercase font-light mb-8 opacity-90">
-            Koh Samui · Thailand · ฤดู
+            KOH SAMUI · THAILAND
           </span>
           <h1 className="font-serif italic text-[15vw] md:text-[8.5rem] leading-[0.95] tracking-tight">
             <span className="hero-word inline-block">Villa</span>{" "}
@@ -264,7 +264,7 @@ function Index() {
       <section id="philosophy" className="py-32 md:py-44 px-6">
         <div className="max-w-4xl mx-auto text-center">
           <span className="reveal text-summer font-medium tracking-[0.35em] uppercase text-[11px] mb-10 block">
-            The Concept · ฤดู
+            OUR PHILOSOPHY
           </span>
           <h2 className="reveal font-serif text-4xl md:text-6xl leading-[1.1] mb-12 text-balance">
             <em>Ledu</em> is the Thai word for season. We built three villas to honour the
