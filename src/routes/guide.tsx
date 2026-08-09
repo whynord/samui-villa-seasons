@@ -103,12 +103,20 @@ function Guide() {
               </span>
             </span>
           </Link>
-          <Link
-            to="/"
-            className="text-[11px] font-medium uppercase tracking-[0.25em] border border-ink/20 px-4 py-2 rounded-full hover:bg-ink hover:text-cream transition-colors"
-          >
-            ← Villa
-          </Link>
+          <div className="flex items-center gap-2">
+            <Link
+              to="/house-rules"
+              className="hidden sm:inline-flex text-[11px] font-medium uppercase tracking-[0.25em] border border-ink/20 px-4 py-2 rounded-full hover:bg-ink hover:text-cream transition-colors"
+            >
+              House Rules
+            </Link>
+            <Link
+              to="/"
+              className="text-[11px] font-medium uppercase tracking-[0.25em] border border-ink/20 px-4 py-2 rounded-full hover:bg-ink hover:text-cream transition-colors"
+            >
+              ← Villa
+            </Link>
+          </div>
         </div>
       </nav>
 
