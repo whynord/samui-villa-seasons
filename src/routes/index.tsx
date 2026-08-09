@@ -606,7 +606,7 @@ function Index() {
                 Follow
               </span>
               <a href="#" className="text-sm hover:text-rainy transition-colors">Instagram</a>
-              <a href="https://samuibeachfrontvilla.com/" className="text-sm hover:text-rainy transition-colors">Out Agent</a>
+              <a href="https://samuibeachfrontvilla.com/" className="text-sm hover:text-rainy transition-colors">Our Agent</a>
               <a href="https://www.airbnb.com/rooms/1713826312803401784?unique_share_id=9a11ff99-d3d3-49ef-b6c5-5d5e9b9f8450&viralityEntryPoint=1&s=76" className="text-sm hover:text-rainy transition-colors">Make a booking on Airbnb</a>
             </div>
           </div>
