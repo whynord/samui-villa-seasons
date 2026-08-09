@@ -598,7 +598,7 @@ function Index() {
                 Reach us
               </span>
               <a href="mailto:villaledusamui@gmail.com" className="text-sm hover:text-summer transition-colors">
-                stay@villaledu.com
+                villaledusamui@gmail.com
               </a>
               <a href="tel:+660800650782" className="text-sm hover:text-summer transition-colors">
                 +66 8 0065 0782
