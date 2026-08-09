@@ -9,6 +9,8 @@ import villaSummer from "@/assets/villa-summer.jpg";
 import villaRainy from "@/assets/villa-rainy.jpg";
 import villaWinter from "@/assets/villa-winter.jpg";
 import experienceEvening from "@/assets/experience-evening.jpg";
+import { galleryItems } from "@/lib/gallery";
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -156,23 +158,8 @@ function Index() {
         );
       });
 
-      // Season color wash on body as user scrolls villas
-      const seasonColors: Record<string, string> = {
-        summer: "#FDE7C0",
-        rainy: "#DCF2C5",
-        winter: "#D6E2F2",
-      };
-      villas.forEach((v) => {
-        ScrollTrigger.create({
-          trigger: `#villa-${v.key}`,
-          start: "top 40%",
-          end: "bottom 40%",
-          onEnter: () => gsap.to(".season-wash", { backgroundColor: seasonColors[v.key], duration: 1.2 }),
-          onEnterBack: () => gsap.to(".season-wash", { backgroundColor: seasonColors[v.key], duration: 1.2 }),
-          onLeave: () => gsap.to(".season-wash", { backgroundColor: "#F8F6F0", duration: 1.2 }),
-          onLeaveBack: () => gsap.to(".season-wash", { backgroundColor: "#F8F6F0", duration: 1.2 }),
-        });
-      });
+
+
 
     }, main);
 
@@ -287,85 +274,47 @@ function Index() {
               The Three Villas
             </span>
             <h3 className="font-serif text-4xl md:text-5xl leading-tight">
-              Choose your season.
+              Gallery
             </h3>
           </div>
           <span className="hidden md:block font-serif italic text-lg text-ink/40">
-            01 — 03
+            Scroll sideways →
           </span>
         </div>
 
-        <div className="max-w-[1400px] mx-auto px-4 md:px-6 grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
-          {villas.map((v, i) => (
-            <article
-              key={v.key}
-              id={`villa-${v.key}`}
-              className="villa-card group relative bg-white border border-ink/5 reveal"
-            >
-              <div className="aspect-[3/4] overflow-hidden">
-                <img
-                  src={v.image}
-                  alt={`Villa ${v.name} — Villa Ledu Samui`}
-                  width={1000}
-                  height={1333}
-                  loading="lazy"
-                  className="villa-img w-full h-[115%] object-cover transition-transform duration-1000 group-hover:scale-105"
-                />
-              </div>
-              <div className="p-8 md:p-10">
-                <div className="flex items-start justify-between mb-6">
-                  <div>
-                    <span className="text-[10px] tracking-[0.3em] uppercase text-ink/40">
-                      {String(i + 1).padStart(2, "0")} · {v.meaning}
-                    </span>
-                    <h4 className="font-serif text-4xl md:text-5xl mt-2">
-                      {v.name}
-                    </h4>
-                    <span className="font-serif italic text-base text-ink/50 mt-1 block">
-                      {v.thai}
-                    </span>
-                  </div>
-                  <span
-                    className="size-3 rounded-full mt-3"
-                    style={{ backgroundColor: `var(--${v.accent})` }}
-                  />
-                </div>
-
-                <p className="text-stone-500 text-sm leading-relaxed mb-8 min-h-[5.5rem]">
-                  {v.blurb}
-                </p>
-
-                <dl className="grid grid-cols-2 gap-y-3 text-sm border-t border-ink/10 pt-6 mb-8">
-                  <dt className="text-ink/50 text-[11px] uppercase tracking-widest">Nightly</dt>
-                  <dd className="text-right font-medium">{v.nightly}</dd>
-                  <dt className="text-ink/50 text-[11px] uppercase tracking-widest">Monthly</dt>
-                  <dd className="text-right font-medium">{v.monthly}</dd>
-                  <dt className="text-ink/50 text-[11px] uppercase tracking-widest">Layout</dt>
-                  <dd className="text-right">{v.beds}</dd>
-                </dl>
-
-                <a
-                  href="#contact"
-                  className="block text-center border border-ink/15 px-6 py-4 text-[10px] uppercase tracking-[0.3em] font-medium transition-colors duration-500 hover:text-cream"
-                  style={
-                    {
-                      ["--hover-bg" as string]: `var(--${v.accent})`,
-                    } as React.CSSProperties
-                  }
-                  onMouseEnter={(e) =>
-                    (e.currentTarget.style.backgroundColor = `var(--${v.accent})`)
-                  }
-                  onMouseLeave={(e) =>
-                    (e.currentTarget.style.backgroundColor = "transparent")
-                  }
+        <div className="reveal">
+          <div
+            className="overflow-x-auto overflow-y-hidden pb-6 px-6 md:px-10 [scrollbar-width:thin]"
+            aria-label="Villa Ledu photo gallery"
+          >
+            <div className="grid grid-rows-2 grid-flow-col auto-cols-[70vw] sm:auto-cols-[42vw] lg:auto-cols-[26vw] gap-4 md:gap-6 w-max">
+              {galleryItems.map((item, i) => (
+                <figure
+                  key={item.src}
+                  className={`group relative overflow-hidden bg-white border border-ink/5 ${
+                    item.span === "tall" ? "row-span-2" : "row-span-1"
+                  } ${item.span === "wide" ? "col-span-2" : ""}`}
                 >
-                  Reserve {v.name}
-                </a>
-              </div>
-            </article>
-          ))}
+                  <img
+                    src={item.src}
+                    alt={item.caption || `Villa Ledu gallery image ${i + 1}`}
+                    loading={i < 3 ? "eager" : "lazy"}
+                    className={`w-full object-cover transition-transform duration-1000 group-hover:scale-105 ${
+                      item.span === "tall" ? "h-[62vh]" : "h-[30vh]"
+                    }`}
+                  />
+                  {item.caption ? (
+                    <figcaption className="absolute bottom-0 left-0 right-0 p-4 text-[10px] uppercase tracking-[0.25em] text-cream bg-gradient-to-t from-ink/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                      {item.caption}
+                    </figcaption>
+                  ) : null}
+                </figure>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
+
 
       {/* Experience / Long stay */}
       <section id="experience" className="bg-ink text-cream py-32 md:py-44 px-6 overflow-hidden">
