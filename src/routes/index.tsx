@@ -545,18 +545,6 @@ function Index() {
               className="bg-transparent border-b border-ink/20 py-4 px-1 text-sm placeholder:text-ink/40 focus:outline-none focus:border-ink"
             />
             <select
-              name="villa"
-              defaultValue=""
-              className="bg-transparent border-b border-ink/20 py-4 px-1 text-sm text-ink/70 focus:outline-none focus:border-ink"
-            >
-              <option value="" disabled>
-                Preferred villa
-              </option>
-              <option>Summer · ฤดูร้อน</option>
-              <option>Rainy · ฤดูฝน</option>
-              <option>Winter · ฤดูหนาว</option>
-            </select>
-            <select
               name="stay"
               className="bg-transparent border-b border-ink/20 py-4 px-1 text-sm text-ink/70 focus:outline-none focus:border-ink"
             >
@@ -644,4 +632,3 @@ function Index() {
     </div>
   );
 }
-
