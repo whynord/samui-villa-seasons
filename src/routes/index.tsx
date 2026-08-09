@@ -5,7 +5,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import logo from "@/assets/villa-ledu-logo.png";
 import heroAerial from "@/assets/hero-aerial.jpg";
-import heroVideoAsset from "@/assets/interior-villa-ledu-hero.mp4.asset.json";
 import villaSummer from "@/assets/villa-summer.jpg";
 import villaRainy from "@/assets/villa-rainy.jpg";
 import villaWinter from "@/assets/villa-winter.jpg";
@@ -231,7 +230,7 @@ function Index() {
         <div className="absolute inset-0">
           <video
             ref={heroVideo}
-            src={heroVideoAsset.url}
+            src="/interior-villa-ledu-hero.mp4"
             autoPlay
             muted
             loop
