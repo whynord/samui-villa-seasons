@@ -433,12 +433,17 @@ function Index() {
               Location
             </span>
             <h3 className="font-serif text-4xl md:text-5xl leading-tight mb-8">
-              Taling Ngam,<br />Koh Samui.
+              Bo Put,<br />Koh Samui.
             </h3>
             <p className="text-stone-500 leading-relaxed text-base max-w-md mb-8">
-              A quiet western hillside, fifteen minutes from the airport and a
-              world away from the crowd. Sunset side of the island, with views
-              across to the Five Islands.
+              Bo Put sits on the island's calmer north coast — close enough to
+              reach in minutes, quiet enough to feel apart. Fisherman's Village
+              is a short walk for dinner and its Friday night market, the
+              airport is under fifteen minutes away, and the Big Buddha Pier
+              puts Koh Phangan and Koh Tao within easy reach for a day trip.
+              It's Samui without the sprawl of Chaweng or Lamai — mornings
+              looking out over calm water, evenings among some of the island's
+              best restaurants, and everything else no more than a short drive.
             </p>
             <a
               href="https://www.google.com/maps/search/?api=1&query=Villa+Ledu+177+30+Soi+Kalkin+Tambon+Bo+Put+Koh+Samui+District+Surat+Thani+84320"
@@ -477,7 +482,7 @@ function Index() {
                   VILLA LEDU
                 </text>
                 <text x="60" y="470" fontFamily="Plus Jakarta Sans" fontSize="10" fill="rgba(26,26,26,0.5)" letterSpacing="2">
-                  9.4294° N · 100.0048° E
+                  9.5350° N · 100.0530° E
                 </text>
               </svg>
             </div>
@@ -544,6 +549,18 @@ function Index() {
               placeholder="Email"
               className="bg-transparent border-b border-ink/20 py-4 px-1 text-sm placeholder:text-ink/40 focus:outline-none focus:border-ink"
             />
+            <select
+              name="villa"
+              defaultValue=""
+              className="bg-transparent border-b border-ink/20 py-4 px-1 text-sm text-ink/70 focus:outline-none focus:border-ink"
+            >
+              <option value="" disabled>
+                Preferred villa
+              </option>
+              <option>Summer · ฤดูร้อน</option>
+              <option>Rainy · ฤดูฝน</option>
+              <option>Winter · ฤดูหนาว</option>
+            </select>
             <select
               name="stay"
               className="bg-transparent border-b border-ink/20 py-4 px-1 text-sm text-ink/70 focus:outline-none focus:border-ink"
@@ -620,7 +637,8 @@ function Index() {
                 Follow
               </span>
               <a href="#" className="text-sm hover:text-rainy transition-colors">Instagram</a>
-              <a href="#" className="text-sm hover:text-rainy transition-colors">Journal</a>
+              <a href="https://samuibeachfrontvilla.com/" className="text-sm hover:text-rainy transition-colors">Out Agent</a>
+              <a href="https://www.airbnb.com/rooms/1713826312803401784?unique_share_id=9a11ff99-d3d3-49ef-b6c5-5d5e9b9f8450&viralityEntryPoint=1&s=76" className="text-sm hover:text-rainy transition-colors">Make a booking on Airbnb</a>
             </div>
           </div>
         </div>
