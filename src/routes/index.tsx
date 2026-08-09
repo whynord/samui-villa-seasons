@@ -264,7 +264,7 @@ function Index() {
       <section id="philosophy" className="py-32 md:py-44 px-6">
         <div className="max-w-4xl mx-auto text-center">
           <span className="reveal text-summer font-medium tracking-[0.35em] uppercase text-[11px] mb-10 block">
-            The Concept · ฤดู
+            OUR PHILOSOPHY
           </span>
           <h2 className="reveal font-serif text-4xl md:text-6xl leading-[1.1] mb-12 text-balance">
             <em>Ledu</em> is the Thai word for season. We built three villas to honour the
