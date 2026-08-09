@@ -457,34 +457,15 @@ function Index() {
             </a>
           </div>
           <div className="md:col-span-7 reveal">
-            <div className="aspect-[16/10] bg-rainy-light relative overflow-hidden border border-ink/10">
-              <svg
-                viewBox="0 0 800 500"
-                className="absolute inset-0 w-full h-full"
-                aria-hidden
-              >
-                <defs>
-                  <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-                    <path d="M40 0H0v40" fill="none" stroke="rgba(26,26,26,0.06)" strokeWidth="1" />
-                  </pattern>
-                </defs>
-                <rect width="800" height="500" fill="url(#grid)" />
-                {/* Stylised Samui blob */}
-                <path
-                  d="M260,120 C360,80 520,100 600,180 C680,250 640,360 540,400 C420,450 260,430 200,340 C150,260 180,160 260,120 Z"
-                  fill="rgba(87,169,180,0.25)"
-                  stroke="var(--rainy)"
-                  strokeWidth="1.5"
-                />
-                <circle cx="420" cy="270" r="6" fill="var(--summer)" />
-                <circle cx="420" cy="270" r="14" fill="none" stroke="var(--summer)" strokeWidth="1" opacity="0.5" />
-                <text x="440" y="275" fontFamily="Plus Jakarta Sans" fontSize="11" fill="#1a1a1a" letterSpacing="2">
-                  VILLA LEDU
-                </text>
-                <text x="60" y="470" fontFamily="Plus Jakarta Sans" fontSize="10" fill="rgba(26,26,26,0.5)" letterSpacing="2">
-                  9.5350° N · 100.0530° E
-                </text>
-              </svg>
+            <div className="aspect-[16/10] bg-rainy-light relative overflow-hidden border border-ink/10 grayscale-[15%] contrast-[1.05]">
+              <iframe
+                title="Villa Ledu location"
+                src="https://www.google.com/maps?q=Villa+Ledu+177+30+Soi+Kalkin+Tambon+Bo+Put+Koh+Samui+District+Surat+Thani+84320&output=embed"
+                className="absolute inset-0 w-full h-full border-0"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                allowFullScreen
+              />
             </div>
           </div>
         </div>
