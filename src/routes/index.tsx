@@ -242,7 +242,7 @@ function Index() {
 
         <div className="relative z-10 h-full flex flex-col items-center justify-center px-6 text-center text-cream">
           <span className="hero-eyebrow text-[10px] sm:text-xs tracking-[0.45em] uppercase font-light mb-8 opacity-90">
-            Koh Samui · Thailand · ฤดู
+            KOH SAMUI · THAILAND
           </span>
           <h1 className="font-serif italic text-[15vw] md:text-[8.5rem] leading-[0.95] tracking-tight">
             <span className="hero-word inline-block">Villa</span>{" "}
