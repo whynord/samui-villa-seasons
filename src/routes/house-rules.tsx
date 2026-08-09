@@ -31,6 +31,7 @@ const languages = [
   { code: "de", label: "Deutsch" },
   { code: "es", label: "Español" },
   { code: "fr", label: "Français" },
+  { code: "ru", label: "Правила проживания" },
   { code: "ja", label: "日本語" },
 ] as const;
 
@@ -39,6 +40,7 @@ const eyebrow: Record<string, string> = {
   de: "Gästeinformation",
   es: "Información para huéspedes",
   fr: "Informations invités",
+  ru: "Правила проживания",
   ja: "ゲスト案内",
 };
 
@@ -47,6 +49,7 @@ const intro: Record<string, string> = {
   de: "Einige freundliche Hinweise, damit sich jeder Gast — und die Villa selbst — wohlfühlen kann. Bitte nehmen Sie sich einen Moment Zeit zum Lesen.",
   es: "Unas pocas indicaciones amables para que cada huésped — y la villa misma — descansen tranquilos. Le rogamos que las lea antes de instalarse.",
   fr: "Quelques recommandations bienveillantes pour que chaque invité — et la villa elle-même — puissent se reposer sereinement. Merci de les lire avant de vous installer.",
+  ru: "",
   ja: "すべてのお客様、そしてヴィラ自体が心地よく過ごせるよう、いくつかのお願いがございます。ご滞在前にお目通しください。",
 };
 
