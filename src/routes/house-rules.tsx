@@ -31,7 +31,7 @@ const languages = [
   { code: "de", label: "Deutsch" },
   { code: "es", label: "Español" },
   { code: "fr", label: "Français" },
-  { code: "ru", label: "Правила проживания" },
+  { code: "ru", label: "Русский" },
   { code: "ja", label: "日本語" },
 ] as const;
 
