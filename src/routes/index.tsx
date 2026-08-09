@@ -430,16 +430,26 @@ function Index() {
         <div className="max-w-6xl mx-auto grid md:grid-cols-12 gap-12 items-end">
           <div className="md:col-span-5 reveal">
             <span className="text-[11px] tracking-[0.35em] uppercase text-ink/50 block mb-6">
-              The Island
+              Location
             </span>
             <h3 className="font-serif text-4xl md:text-5xl leading-tight mb-8">
               Taling Ngam,<br />Koh Samui.
             </h3>
-            <p className="text-stone-500 leading-relaxed text-base max-w-md">
+            <p className="text-stone-500 leading-relaxed text-base max-w-md mb-8">
               A quiet western hillside, fifteen minutes from the airport and a
               world away from the crowd. Sunset side of the island, with views
               across to the Five Islands.
             </p>
+            <a
+              href="https://www.google.com/maps/search/?api=1&query=Villa+Ledu+177+30+Soi+Kalkin+Tambon+Bo+Put+Koh+Samui+District+Surat+Thani+84320"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block text-sm text-ink/70 hover:text-summer transition-colors leading-relaxed border-t border-ink/10 pt-6 max-w-md"
+            >
+              Villa Ledu 177, 30 Soi Kalkin,<br />
+              Tambon Bo Put, Koh Samui District,<br />
+              Surat Thani 84320
+            </a>
           </div>
           <div className="md:col-span-7 reveal">
             <div className="aspect-[16/10] bg-rainy-light relative overflow-hidden border border-ink/10">
@@ -536,9 +546,12 @@ function Index() {
             />
             <select
               name="villa"
+              defaultValue=""
               className="bg-transparent border-b border-ink/20 py-4 px-1 text-sm text-ink/70 focus:outline-none focus:border-ink"
             >
-              <option>Any villa</option>
+              <option value="" disabled>
+                Preferred villa
+              </option>
               <option>Summer · ฤดูร้อน</option>
               <option>Rainy · ฤดูฝน</option>
               <option>Winter · ฤดูหนาว</option>
@@ -597,11 +610,21 @@ function Index() {
               <span className="text-[10px] font-semibold uppercase tracking-[0.3em] text-ink/40">
                 Reach us
               </span>
-              <a href="mailto:villaledusamui@gmail.com" className="text-sm hover:text-summer transition-colors">
-                villaledusamui@gmail.com
+              <a href="mailto:stay@villaledu.com" className="text-sm hover:text-summer transition-colors">
+                stay@villaledu.com
               </a>
-              <a href="tel:+660800650782" className="text-sm hover:text-summer transition-colors">
-                +66 8 0065 0782
+              <a href="tel:+66824440000" className="text-sm hover:text-summer transition-colors">
+                +66 82 444 0000
+              </a>
+              <a
+                href="https://www.google.com/maps/search/?api=1&query=Villa+Ledu+177+30+Soi+Kalkin+Tambon+Bo+Put+Koh+Samui+District+Surat+Thani+84320"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm text-ink/50 hover:text-summer transition-colors leading-relaxed max-w-[220px]"
+              >
+                Villa Ledu 177, 30 Soi Kalkin,<br />
+                Tambon Bo Put, Koh Samui District,<br />
+                Surat Thani 84320
               </a>
             </div>
             <div className="flex flex-col gap-3">
@@ -609,7 +632,7 @@ function Index() {
                 Follow
               </span>
               <a href="#" className="text-sm hover:text-rainy transition-colors">Instagram</a>
-              <a href="https://samuibeachfrontvilla.com/" className="text-sm hover:text-rainy transition-colors">Our Agents</a>
+              <a href="#" className="text-sm hover:text-rainy transition-colors">Journal</a>
             </div>
           </div>
         </div>
@@ -621,3 +644,4 @@ function Index() {
     </div>
   );
 }
+
