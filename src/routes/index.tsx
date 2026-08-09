@@ -158,23 +158,8 @@ function Index() {
         );
       });
 
-      // Season color wash on body as user scrolls villas
-      const seasonColors: Record<string, string> = {
-        summer: "#FDE7C0",
-        rainy: "#DCF2C5",
-        winter: "#D6E2F2",
-      };
-      villas.forEach((v) => {
-        ScrollTrigger.create({
-          trigger: `#villa-${v.key}`,
-          start: "top 40%",
-          end: "bottom 40%",
-          onEnter: () => gsap.to(".season-wash", { backgroundColor: seasonColors[v.key], duration: 1.2 }),
-          onEnterBack: () => gsap.to(".season-wash", { backgroundColor: seasonColors[v.key], duration: 1.2 }),
-          onLeave: () => gsap.to(".season-wash", { backgroundColor: "#F8F6F0", duration: 1.2 }),
-          onLeaveBack: () => gsap.to(".season-wash", { backgroundColor: "#F8F6F0", duration: 1.2 }),
-        });
-      });
+
+
 
     }, main);
 
