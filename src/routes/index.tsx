@@ -146,6 +146,9 @@ function Index() {
   const heroVideo = useRef<HTMLVideoElement>(null);
   const heroTitle = useRef<HTMLHeadingElement>(null);
   const [navSolid, setNavSolid] = useState(false);
+  const [formStatus, setFormStatus] = useState<
+    "idle" | "loading" | "success" | "error"
+  >("idle");
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -488,11 +491,34 @@ function Index() {
 
           <form
             className="reveal grid grid-cols-1 md:grid-cols-2 gap-4 text-left"
-            onSubmit={(e) => {
+            onSubmit={async (e) => {
               e.preventDefault();
               const form = e.currentTarget as HTMLFormElement;
-              form.reset();
-              alert("Thank you — we'll be in touch shortly.");
+              const formData = new FormData(form);
+
+              // Web3Forms free form-relay service — no backend required.
+              // 1. Go to https://web3forms.com and verify villaledusamui@gmail.com
+              // 2. Paste the access key it emails you below.
+              formData.append("access_key", "YOUR_WEB3FORMS_ACCESS_KEY");
+              formData.append("subject", "New inquiry — Villa Ledu website");
+              formData.append("from_name", "Villa Ledu website");
+
+              setFormStatus("loading");
+              try {
+                const res = await fetch("https://api.web3forms.com/submit", {
+                  method: "POST",
+                  body: formData,
+                });
+                const data = await res.json();
+                if (data.success) {
+                  form.reset();
+                  setFormStatus("success");
+                } else {
+                  setFormStatus("error");
+                }
+              } catch {
+                setFormStatus("error");
+              }
             }}
           >
             <input
@@ -533,10 +559,22 @@ function Index() {
             />
             <button
               type="submit"
-              className="md:col-span-2 mt-8 mx-auto bg-ink text-cream px-12 py-4 text-[11px] uppercase tracking-[0.3em] font-medium hover:bg-winter transition-colors duration-500"
+              disabled={formStatus === "loading"}
+              className="md:col-span-2 mt-8 mx-auto bg-ink text-cream px-12 py-4 text-[11px] uppercase tracking-[0.3em] font-medium hover:bg-winter transition-colors duration-500 disabled:opacity-50"
             >
-              Send Inquiry
+              {formStatus === "loading" ? "Sending…" : "Send Inquiry"}
             </button>
+
+            {formStatus === "success" && (
+              <p className="md:col-span-2 text-center text-sm text-winter">
+                Thank you — we'll be in touch shortly.
+              </p>
+            )}
+            {formStatus === "error" && (
+              <p className="md:col-span-2 text-center text-sm text-summer">
+                Something went wrong — please email stay@villaledu.com directly.
+              </p>
+            )}
           </form>
         </div>
       </section>
@@ -559,11 +597,11 @@ function Index() {
               <span className="text-[10px] font-semibold uppercase tracking-[0.3em] text-ink/40">
                 Reach us
               </span>
-              <a href="mailto:stay@villaledu.com" className="text-sm hover:text-summer transition-colors">
+              <a href="mailto:villaledusamui@gmail.com" className="text-sm hover:text-summer transition-colors">
                 stay@villaledu.com
               </a>
-              <a href="tel:+66824440000" className="text-sm hover:text-summer transition-colors">
-                +66 82 444 0000
+              <a href="tel:+660800650782" className="text-sm hover:text-summer transition-colors">
+                +66 8 0065 0782
               </a>
             </div>
             <div className="flex flex-col gap-3">
@@ -571,7 +609,7 @@ function Index() {
                 Follow
               </span>
               <a href="#" className="text-sm hover:text-rainy transition-colors">Instagram</a>
-              <a href="#" className="text-sm hover:text-rainy transition-colors">Journal</a>
+              <a href="https://samuibeachfrontvilla.com/" className="text-sm hover:text-rainy transition-colors">Our Agents</a>
             </div>
           </div>
         </div>
@@ -583,4 +621,3 @@ function Index() {
     </div>
   );
 }
-
