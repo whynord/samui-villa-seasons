@@ -9,6 +9,8 @@ import villaSummer from "@/assets/villa-summer.jpg";
 import villaRainy from "@/assets/villa-rainy.jpg";
 import villaWinter from "@/assets/villa-winter.jpg";
 import experienceEvening from "@/assets/experience-evening.jpg";
+import { galleryItems } from "@/lib/gallery";
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
