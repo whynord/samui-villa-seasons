@@ -99,7 +99,7 @@ function Guide() {
             <span className="hidden sm:flex flex-col leading-none">
               <span className="font-serif italic text-lg">Villa Ledu</span>
               <span className="text-[10px] tracking-[0.3em] uppercase text-ink/50 mt-1">
-                Guest Guide
+                SAMUI
               </span>
             </span>
           </Link>
@@ -124,7 +124,7 @@ function Guide() {
       <header className="px-6 md:px-10 pt-20 md:pt-28 pb-16 md:pb-24 border-b border-ink/10">
         <div className="max-w-[1400px] mx-auto">
           <span className="text-[11px] tracking-[0.45em] uppercase text-ink/50 block mb-8">
-            Guest Reference · ฤดู
+            APPLIANCE GUIDES
           </span>
           <h1 className="font-serif text-5xl md:text-7xl leading-[1.02] tracking-tight text-balance max-w-4xl">
             A quiet guide to the <em>everyday</em> things in your villa.
