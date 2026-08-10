@@ -534,7 +534,7 @@ function Index() {
               name="stay"
               className="md:col-span-2 bg-transparent border-b border-ink/20 py-4 px-1 text-sm text-ink/70 focus:outline-none focus:border-ink"
             >
-              <option>Short stay (1–14 nights)</option>
+              <option>Short stay (3–14 nights)</option>
               <option>Long stay (15–29 nights)</option>
               <option>Residency (30+ nights)</option>
             </select>
@@ -584,11 +584,11 @@ function Index() {
               <span className="text-[10px] font-semibold uppercase tracking-[0.3em] text-ink/40">
                 Reach us
               </span>
-              <a href="mailto:stay@villaledu.com" className="text-sm hover:text-summer transition-colors">
-                stay@villaledu.com
+              <a href="mailto:villaledusamui@gmail.com" className="text-sm hover:text-summer transition-colors">
+                villaledusamui@gmail.com
               </a>
-              <a href="tel:+66824440000" className="text-sm hover:text-summer transition-colors">
-                +66 82 444 0000
+              <a href="tel:+66843431144" className="text-sm hover:text-summer transition-colors">
+                +66 8 4343 1144
               </a>
               <a
                 href="https://www.google.com/maps/search/?api=1&query=Villa+Ledu+177+30+Soi+Kalkin+Tambon+Bo+Put+Koh+Samui+District+Surat+Thani+84320"
@@ -605,7 +605,7 @@ function Index() {
               <span className="text-[10px] font-semibold uppercase tracking-[0.3em] text-ink/40">
                 Follow
               </span>
-              <a href="#" className="text-sm hover:text-rainy transition-colors">Instagram</a>
+              <a href="https://www.instagram.com/villaledu_samui" className="text-sm hover:text-rainy transition-colors">Instagram</a>
               <a href="https://samuibeachfrontvilla.com/" className="text-sm hover:text-rainy transition-colors">Our Agent</a>
               <a href="https://www.airbnb.com/rooms/1713826312803401784?unique_share_id=9a11ff99-d3d3-49ef-b6c5-5d5e9b9f8450&viralityEntryPoint=1&s=76" className="text-sm hover:text-rainy transition-colors">Make a booking on Airbnb</a>
             </div>
