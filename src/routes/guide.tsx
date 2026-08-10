@@ -441,20 +441,7 @@ function Guide() {
       </div>
 
       {/* Footer */}
-      <footer className="border-t border-ink/10 py-16 px-6 md:px-10 mt-16">
-        <div className="max-w-[1400px] mx-auto flex flex-col md:flex-row md:items-end md:justify-between gap-8">
-          <div>
-            <span className="font-serif italic text-2xl">Villa Ledu</span>
-            <p className="mt-3 text-sm text-ink/50 max-w-md leading-relaxed">
-              Anything not covered here? Please ask your host — we're happy to
-              walk you through it in person.
-            </p>
-          </div>
-          <div className="text-[10px] tracking-[0.35em] uppercase text-ink/40">
-            Guest reference · Koh Samui
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }
