@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 
+import { Footer } from "@/components/Footer";
 import logo from "@/assets/villa-ledu-logo.png";
 import { houseRules } from "@/data/house-rules";
 

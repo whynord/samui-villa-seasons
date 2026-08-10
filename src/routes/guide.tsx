@@ -11,6 +11,7 @@ import {
   ChevronRight,
 } from "lucide-react";
 
+import { Footer } from "@/components/Footer";
 import logo from "@/assets/villa-ledu-logo.png";
 import airConditionerFig from "@/assets/guide/air-conditioner.png";
 import microwaveFig from "@/assets/guide/microwave.png";
