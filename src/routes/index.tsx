@@ -327,7 +327,7 @@ function Index() {
         <div className="max-w-[1400px] mx-auto px-6 md:px-10 mb-16 flex items-end justify-between reveal">
           <div>
             <span className="text-[11px] tracking-[0.35em] uppercase text-ink/50 block mb-4">
-              The Three Villas
+              The Villa
             </span>
             <h3 className="font-serif text-4xl md:text-5xl leading-tight">
               Gallery
