@@ -394,7 +394,7 @@ function Index() {
             <div className="relative reveal">
               <img
                 src={experienceEvening}
-                alt="Koh Samui — evening on the island"
+                alt="Villa Ledu — master bedroom detail"
                 width={1200}
                 height={1600}
                 loading="lazy"
