@@ -496,7 +496,7 @@ function Index() {
               // Web3Forms free form-relay service — no backend required.
               // 1. Go to https://web3forms.com and verify villaledusamui@gmail.com
               // 2. Paste the access key it emails you below.
-              formData.append("access_key", "YOUR_WEB3FORMS_ACCESS_KEY");
+              formData.append("access_key", "1f29d99f-0095-4a8b-bc61-b08a9b6446ee");
               formData.append("subject", "New inquiry — Villa Ledu website");
               formData.append("from_name", "Villa Ledu website");
 
@@ -560,7 +560,7 @@ function Index() {
             )}
             {formStatus === "error" && (
               <p className="md:col-span-2 text-center text-sm text-summer">
-                Something went wrong — please email stay@villaledu.com directly.
+                Something went wrong — please email villaledusamui@gmail.com directly.
               </p>
             )}
           </form>
