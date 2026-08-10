@@ -326,13 +326,13 @@ function Index() {
       <section id="villas" className="pb-32">
   <div className="max-w-1400px mx-auto px-6 md:px-10 mb-16 flex flex-col sm:flex-row sm:items-end justify-between gap-4 reveal">
     <div>
-      <span className="text-11px tracking-[0.35em] uppercase text-ink50 block mb-4">
-        The Estate
-      </span>
-      <h3 className="font-serif text-4xl md:text-5xl leading-tight">
-        Three seasonal residences, one private stay
-      </h3>
-    </div>
+            <span className="text-[11px] tracking-[0.35em] uppercase text-ink/50 block mb-4">
+              The Villa
+            </span>
+            <h3 className="font-serif text-4xl md:text-5xl leading-tight">
+              Three seasonal residences, one private stay.
+            </h3>
+          </div>
     <span className="font-serif italic text-base sm:text-lg text-ink40">
       Explore the architecture, spaces, and atmosphere
     </span>
