@@ -324,7 +324,7 @@ function Index() {
 
       {/* Villas */}
       <section id="villas" className="pb-32">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-10 mb-16 flex items-end justify-between reveal">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-10 mb-16 flex flex-col sm:flex-row sm:items-end justify-between gap-4 reveal">
           <div>
             <span className="text-[11px] tracking-[0.35em] uppercase text-ink/50 block mb-4">
               The Villa
@@ -333,7 +333,7 @@ function Index() {
               Gallery
             </h3>
           </div>
-          <span className="hidden md:block font-serif italic text-lg text-ink/40">
+          <span className="font-serif italic text-base sm:text-lg text-ink/40">
             Scroll sideways →
           </span>
         </div>
