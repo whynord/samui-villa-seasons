@@ -9,6 +9,7 @@ import villaSummer from "@/assets/villa-summer.jpg";
 import villaRainy from "@/assets/villa-rainy.jpg";
 import villaWinter from "@/assets/villa-winter.jpg";
 import experienceEvening from "@/assets/experience-evening.jpg";
+import { Footer } from "@/components/Footer";
 import { galleryItems } from "@/lib/gallery";
 
 
@@ -566,56 +567,7 @@ function Index() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="py-20 px-6 border-t border-ink/10">
-        <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-start gap-12">
-          <div className="flex items-start gap-4">
-            <img src={logo} alt="Villa Ledu" className="h-14 w-auto" />
-            <div>
-              <div className="font-serif italic text-2xl mb-1">Villa Ledu</div>
-              <p className="text-ink/50 text-sm max-w-xs">
-                A tribute to the island's natural cycles.<br />
-                Taling Ngam · Koh Samui · Thailand
-              </p>
-            </div>
-          </div>
-          <div className="flex gap-16 md:gap-24">
-            <div className="flex flex-col gap-3">
-              <span className="text-[10px] font-semibold uppercase tracking-[0.3em] text-ink/40">
-                Reach us
-              </span>
-              <a href="mailto:villaledusamui@gmail.com" className="text-sm hover:text-summer transition-colors">
-                villaledusamui@gmail.com
-              </a>
-              <a href="tel:+66843431144" className="text-sm hover:text-summer transition-colors">
-                +66 8 4343 1144
-              </a>
-              <a
-                href="https://www.google.com/maps/search/?api=1&query=Villa+Ledu+177+30+Soi+Kalkin+Tambon+Bo+Put+Koh+Samui+District+Surat+Thani+84320"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm text-ink/50 hover:text-summer transition-colors leading-relaxed max-w-[220px]"
-              >
-                Villa Ledu 177, 30 Soi Kalkin,<br />
-                Tambon Bo Put, Koh Samui District,<br />
-                Surat Thani 84320
-              </a>
-            </div>
-            <div className="flex flex-col gap-3">
-              <span className="text-[10px] font-semibold uppercase tracking-[0.3em] text-ink/40">
-                Follow
-              </span>
-              <a href="https://www.instagram.com/villaledu_samui" className="text-sm hover:text-rainy transition-colors">Instagram</a>
-              <a href="https://samuibeachfrontvilla.com/" className="text-sm hover:text-rainy transition-colors">Our Agent</a>
-              <a href="https://www.airbnb.com/rooms/1713826312803401784?unique_share_id=9a11ff99-d3d3-49ef-b6c5-5d5e9b9f8450&viralityEntryPoint=1&s=76" className="text-sm hover:text-rainy transition-colors">Make a booking on Airbnb</a>
-            </div>
-          </div>
-        </div>
-        <div className="max-w-6xl mx-auto mt-16 pt-6 border-t border-ink/5 flex justify-between text-[10px] uppercase tracking-[0.3em] text-ink/40">
-          <span>© {new Date().getFullYear()} Villa Ledu</span>
-          <span>Made in Samui</span>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }
