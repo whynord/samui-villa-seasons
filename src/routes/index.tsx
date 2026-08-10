@@ -324,52 +324,90 @@ function Index() {
 
       {/* Villas */}
       <section id="villas" className="pb-32">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-10 mb-16 flex flex-col sm:flex-row sm:items-end justify-between gap-4 reveal">
-          <div>
-            <span className="text-[11px] tracking-[0.35em] uppercase text-ink/50 block mb-4">
-              The Villa
-            </span>
-            <h3 className="font-serif text-4xl md:text-5xl leading-tight">
-              Gallery
-            </h3>
-          </div>
-          <span className="font-serif italic text-base sm:text-lg text-ink/40">
-            Scroll sideways →
-          </span>
-        </div>
+  <div className="max-w-1400px mx-auto px-6 md:px-10 mb-16 flex flex-col sm:flex-row sm:items-end justify-between gap-4 reveal">
+    <div>
+      <span className="text-11px tracking-[0.35em] uppercase text-ink50 block mb-4">
+        The Estate
+      </span>
+      <h3 className="font-serif text-4xl md:text-5xl leading-tight">
+        Three seasonal residences, one private stay
+      </h3>
+    </div>
+    <span className="font-serif italic text-base sm:text-lg text-ink40">
+      Explore the architecture, spaces, and atmosphere
+    </span>
+  </div>
 
-        <div className="reveal">
-          <div
-            className="overflow-x-auto overflow-y-hidden pb-6 px-6 md:px-10 [scrollbar-width:thin]"
-            aria-label="Villa Ledu photo gallery"
+  <div className="max-w-1400px mx-auto px-6 md:px-10 reveal">
+    <div className="grid gap-6 md:gap-8 lg:grid-cols-12">
+      <figure className="lg:col-span-8 relative overflow-hidden bg-white border border-ink5">
+        <img
+          src={galleryItems[0]?.src}
+          alt={galleryItems[0]?.caption || "Villa Ledu estate overview"}
+          className="w-full h-[420px] md:h-[620px] object-cover"
+          loading="eager"
+        />
+        <figcaption className="absolute inset-x-0 bottom-0 p-5 md:p-6 bg-gradient-to-t from-ink80 to-transparent text-cream">
+          <p className="text-10px uppercase tracking-[0.25em] opacity-80 mb-2">
+            Estate overview
+          </p>
+          <p className="text-sm md:text-base">
+            A private hillside composition designed as one seamless retreat.
+          </p>
+        </figcaption>
+      </figure>
+
+      <div className="lg:col-span-4 grid grid-cols-2 gap-6 md:gap-8">
+        {galleryItems.slice(1, 3).map((item, i) => (
+          <figure
+            key={item.src}
+            className="relative overflow-hidden bg-white border border-ink5"
           >
-            <div className="grid grid-rows-2 grid-flow-col auto-cols-[70vw] sm:auto-cols-[42vw] lg:auto-cols-[26vw] gap-4 md:gap-6 w-max">
-              {galleryItems.map((item, i) => (
-                <figure
-                  key={item.src}
-                  className={`group relative overflow-hidden bg-white border border-ink/5 ${
-                    item.span === "tall" ? "row-span-2" : "row-span-1"
-                  } ${item.span === "wide" ? "col-span-2" : ""}`}
-                >
-                  <img
-                    src={item.src}
-                    alt={item.caption || `Villa Ledu gallery image ${i + 1}`}
-                    loading={i < 3 ? "eager" : "lazy"}
-                    className={`w-full object-cover transition-transform duration-1000 group-hover:scale-105 ${
-                      item.span === "tall" ? "h-[62vh]" : "h-[30vh]"
-                    }`}
-                  />
-                  {item.caption ? (
-                    <figcaption className="absolute bottom-0 left-0 right-0 p-4 text-[10px] uppercase tracking-[0.25em] text-cream bg-gradient-to-t from-ink/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                      {item.caption}
-                    </figcaption>
-                  ) : null}
-                </figure>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+            <img
+              src={item.src}
+              alt={item.caption || `Villa Ledu image ${i + 2}`}
+              className="w-full h-[200px] md:h-[280px] object-cover transition-transform duration-700 hover:scale-105"
+              loading="lazy"
+            />
+            <figcaption className="p-4">
+              <p className="text-10px uppercase tracking-[0.25em] text-ink40 mb-2">
+                Seasonal residence
+              </p>
+              <p className="text-sm text-ink70">
+                {item.caption || "Interiors and details"}
+              </p>
+            </figcaption>
+          </figure>
+        ))}
+      </div>
+    </div>
+
+    <div className="mt-6 grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
+      {galleryItems.slice(3, 7).map((item, i) => (
+        <figure
+          key={item.src}
+          className="group relative overflow-hidden bg-white border border-ink5"
+        >
+          <img
+            src={item.src}
+            alt={item.caption || `Villa Ledu image ${i + 4}`}
+            className="w-full h-[220px] md:h-[260px] object-cover transition-transform duration-700 group-hover:scale-105"
+            loading="lazy"
+          />
+          <figcaption className="p-4">
+            <p className="text-10px uppercase tracking-[0.25em] text-ink40 mb-2">
+              Shared experience
+            </p>
+            <p className="text-sm text-ink70">
+              {item.caption || "View, texture, and atmosphere"}
+            </p>
+          </figcaption>
+        </figure>
+      ))}
+    </div>
+  </div>
+</section>
+
 
 
       {/* Explore / Things to do on Samui */}
