@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
+import { useServerFn } from "@tanstack/react-start";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -10,6 +11,7 @@ import villaRainy from "@/assets/villa-rainy.jpg";
 import villaWinter from "@/assets/villa-winter.jpg";
 import experienceEvening from "@/assets/experience-evening.jpg";
 import { galleryItems } from "@/lib/gallery";
+import { sendInquiry } from "@/lib/inquiry.functions";
 
 
 export const Route = createFileRoute("/")({
@@ -146,6 +148,7 @@ function Index() {
   const heroVideo = useRef<HTMLVideoElement>(null);
   const heroTitle = useRef<HTMLHeadingElement>(null);
   const [navSolid, setNavSolid] = useState(false);
+  const submitInquiry = useServerFn(sendInquiry);
   const [formStatus, setFormStatus] = useState<
     "idle" | "loading" | "success" | "error"
   >("idle");
@@ -528,23 +531,19 @@ function Index() {
             onSubmit={async (e) => {
               e.preventDefault();
               const form = e.currentTarget as HTMLFormElement;
-              const formData = new FormData(form);
-
-              // Web3Forms free form-relay service — no backend required.
-              // 1. Go to https://web3forms.com and verify villaledusamui@gmail.com
-              // 2. Paste the access key it emails you below.
-              formData.append("access_key", "YOUR_WEB3FORMS_ACCESS_KEY");
-              formData.append("subject", "New inquiry — Villa Ledu website");
-              formData.append("from_name", "Villa Ledu website");
+              const fd = new FormData(form);
 
               setFormStatus("loading");
               try {
-                const res = await fetch("https://api.web3forms.com/submit", {
-                  method: "POST",
-                  body: formData,
+                const res = await submitInquiry({
+                  data: {
+                    name: String(fd.get("name") ?? ""),
+                    email: String(fd.get("email") ?? ""),
+                    stay: String(fd.get("stay") ?? ""),
+                    message: String(fd.get("message") ?? ""),
+                  },
                 });
-                const data = await res.json();
-                if (data.success) {
+                if (res.ok) {
                   form.reset();
                   setFormStatus("success");
                 } else {
@@ -555,6 +554,7 @@ function Index() {
               }
             }}
           >
+
             <input
               required
               name="name"
@@ -597,7 +597,7 @@ function Index() {
             )}
             {formStatus === "error" && (
               <p className="md:col-span-2 text-center text-sm text-summer">
-                Something went wrong — please email stay@villaledu.com directly.
+                Something went wrong — please email villaledusamui@gmail.com directly.
               </p>
             )}
           </form>
