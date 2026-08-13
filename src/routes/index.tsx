@@ -528,23 +528,19 @@ function Index() {
             onSubmit={async (e) => {
               e.preventDefault();
               const form = e.currentTarget as HTMLFormElement;
-              const formData = new FormData(form);
-
-              // Web3Forms free form-relay service — no backend required.
-              // 1. Go to https://web3forms.com and verify villaledusamui@gmail.com
-              // 2. Paste the access key it emails you below.
-              formData.append("access_key", "YOUR_WEB3FORMS_ACCESS_KEY");
-              formData.append("subject", "New inquiry — Villa Ledu website");
-              formData.append("from_name", "Villa Ledu website");
+              const fd = new FormData(form);
 
               setFormStatus("loading");
               try {
-                const res = await fetch("https://api.web3forms.com/submit", {
-                  method: "POST",
-                  body: formData,
+                const res = await submitInquiry({
+                  data: {
+                    name: String(fd.get("name") ?? ""),
+                    email: String(fd.get("email") ?? ""),
+                    stay: String(fd.get("stay") ?? ""),
+                    message: String(fd.get("message") ?? ""),
+                  },
                 });
-                const data = await res.json();
-                if (data.success) {
+                if (res.ok) {
                   form.reset();
                   setFormStatus("success");
                 } else {
@@ -555,6 +551,7 @@ function Index() {
               }
             }}
           >
+
             <input
               required
               name="name"
