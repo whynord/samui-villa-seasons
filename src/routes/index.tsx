@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
+import { useServerFn } from "@tanstack/react-start";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -10,6 +11,7 @@ import villaRainy from "@/assets/villa-rainy.jpg";
 import villaWinter from "@/assets/villa-winter.jpg";
 import experienceEvening from "@/assets/experience-evening.jpg";
 import { galleryItems } from "@/lib/gallery";
+import { sendInquiry } from "@/lib/inquiry.functions";
 
 
 export const Route = createFileRoute("/")({
@@ -146,6 +148,7 @@ function Index() {
   const heroVideo = useRef<HTMLVideoElement>(null);
   const heroTitle = useRef<HTMLHeadingElement>(null);
   const [navSolid, setNavSolid] = useState(false);
+  const submitInquiry = useServerFn(sendInquiry);
   const [formStatus, setFormStatus] = useState<
     "idle" | "loading" | "success" | "error"
   >("idle");
@@ -594,7 +597,7 @@ function Index() {
             )}
             {formStatus === "error" && (
               <p className="md:col-span-2 text-center text-sm text-summer">
-                Something went wrong — please email stay@villaledu.com directly.
+                Something went wrong — please email villaledusamui@gmail.com directly.
               </p>
             )}
           </form>
