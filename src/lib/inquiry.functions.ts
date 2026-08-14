@@ -42,7 +42,7 @@ export const sendInquiry = createServerFn({ method: "POST" })
         Authorization: `Bearer ${apiKey}`,
       },
       body: JSON.stringify({
-        from: process.env["RESEND_FROM"] ?? "Villa Ledu <onboarding@resend.dev>",
+        from: fromAddress(),
         to: ["villaledusamui@gmail.com"],
         reply_to: data.email,
         subject: `New inquiry — ${data.name}`,
