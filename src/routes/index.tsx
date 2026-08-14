@@ -10,7 +10,7 @@ import villaSummer from "@/assets/villa-summer.jpg";
 import villaRainy from "@/assets/villa-rainy.jpg";
 import villaWinter from "@/assets/villa-winter.jpg";
 import experienceEvening from "@/assets/experience-evening.jpg";
-import { galleryItems } from "@/lib/gallery";
+import { GalleryMasonry } from "@/components/gallery-masonry";
 import { sendInquiry } from "@/lib/inquiry.functions";
 
 
@@ -342,73 +342,9 @@ function Index() {
   </div>
 
   <div className="max-w-1400px mx-auto px-6 md:px-10 reveal">
-    <div className="grid gap-6 md:gap-8 lg:grid-cols-12">
-      <figure className="lg:col-span-8 relative overflow-hidden bg-white border border-ink5">
-        <img
-          src={galleryItems[0]?.src}
-          alt={galleryItems[0]?.caption || "Villa Ledu estate overview"}
-          className="w-full h-[420px] md:h-[620px] object-cover"
-          loading="eager"
-        />
-        <figcaption className="absolute inset-x-0 bottom-0 p-5 md:p-6 bg-gradient-to-t from-ink80 to-transparent text-cream">
-          <p className="text-10px uppercase tracking-[0.25em] opacity-80 mb-2">
-            Estate overview
-          </p>
-          <p className="text-sm md:text-base">
-            A private hillside composition designed as one seamless retreat.
-          </p>
-        </figcaption>
-      </figure>
-
-      <div className="lg:col-span-4 grid grid-cols-2 gap-6 md:gap-8">
-        {galleryItems.slice(1, 3).map((item, i) => (
-          <figure
-            key={item.src}
-            className="relative overflow-hidden bg-white border border-ink5"
-          >
-            <img
-              src={item.src}
-              alt={item.caption || `Villa Ledu image ${i + 2}`}
-              className="w-full h-[200px] md:h-[280px] object-cover transition-transform duration-700 hover:scale-105"
-              loading="lazy"
-            />
-            <figcaption className="p-4">
-              <p className="text-10px uppercase tracking-[0.25em] text-ink40 mb-2">
-                Seasonal residence
-              </p>
-              <p className="text-sm text-ink70">
-                {item.caption || "Interiors and details"}
-              </p>
-            </figcaption>
-          </figure>
-        ))}
-      </div>
-    </div>
-
-    <div className="mt-6 grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
-      {galleryItems.slice(3, 7).map((item, i) => (
-        <figure
-          key={item.src}
-          className="group relative overflow-hidden bg-white border border-ink5"
-        >
-          <img
-            src={item.src}
-            alt={item.caption || `Villa Ledu image ${i + 4}`}
-            className="w-full h-[220px] md:h-[260px] object-cover transition-transform duration-700 group-hover:scale-105"
-            loading="lazy"
-          />
-          <figcaption className="p-4">
-            <p className="text-10px uppercase tracking-[0.25em] text-ink40 mb-2">
-              Shared experience
-            </p>
-            <p className="text-sm text-ink70">
-              {item.caption || "View, texture, and atmosphere"}
-            </p>
-          </figcaption>
-        </figure>
-      ))}
-    </div>
+    <GalleryMasonry />
   </div>
+
 </section>
 
 
