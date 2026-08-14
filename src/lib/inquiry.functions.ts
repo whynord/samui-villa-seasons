@@ -1,5 +1,6 @@
 import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
+import { fromAddress, INQUIRY_TO } from "./inquiry-config";
 
 const inquirySchema = z.object({
   name: z.string().trim().min(1, "Name is required").max(100),
@@ -42,8 +43,8 @@ export const sendInquiry = createServerFn({ method: "POST" })
         Authorization: `Bearer ${apiKey}`,
       },
       body: JSON.stringify({
-        from: process.env["RESEND_FROM"] ?? "Villa Ledu <onboarding@resend.dev>",
-        to: ["villaledusamui@gmail.com"],
+        from: fromAddress(),
+        to: [INQUIRY_TO],
         reply_to: data.email,
         subject: `New inquiry — ${data.name}`,
         html,
