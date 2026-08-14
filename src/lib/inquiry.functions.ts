@@ -44,7 +44,7 @@ export const sendInquiry = createServerFn({ method: "POST" })
       },
       body: JSON.stringify({
         from: fromAddress(),
-        to: ["villaledusamui@gmail.com"],
+        to: [INQUIRY_TO],
         reply_to: data.email,
         subject: `New inquiry — ${data.name}`,
         html,
