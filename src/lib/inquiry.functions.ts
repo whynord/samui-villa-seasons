@@ -1,5 +1,6 @@
 import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
+import { fromAddress, INQUIRY_TO } from "./inquiry-config";
 
 const inquirySchema = z.object({
   name: z.string().trim().min(1, "Name is required").max(100),
