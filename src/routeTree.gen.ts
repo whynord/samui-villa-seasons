@@ -9,72 +9,58 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as HouseRulesRouteImport } from './routes/house-rules'
-import { Route as GuideRouteImport } from './routes/guide'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ApplianceGuideRouteImport } from './routes/appliance-guide'
+import { Route as HouseRulesRouteImport } from './routes/house-rules'
 
-const HouseRulesRoute = HouseRulesRouteImport.update({
-  id: '/house-rules',
-  path: '/house-rules',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const GuideRoute = GuideRouteImport.update({
-  id: '/guide',
-  path: '/guide',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApplianceGuideRoute = ApplianceGuideRouteImport.update({
+  id: '/appliance-guide',
+  path: '/appliance-guide',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HouseRulesRoute = HouseRulesRouteImport.update({
+  id: '/house-rules',
+  path: '/house-rules',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/guide': typeof GuideRoute
+  '/appliance-guide': typeof ApplianceGuideRoute
   '/house-rules': typeof HouseRulesRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/guide': typeof GuideRoute
+  '/appliance-guide': typeof ApplianceGuideRoute
   '/house-rules': typeof HouseRulesRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/guide': typeof GuideRoute
+  '/appliance-guide': typeof ApplianceGuideRoute
   '/house-rules': typeof HouseRulesRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/guide' | '/house-rules'
+  fullPaths: '/' | '/appliance-guide' | '/house-rules'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/guide' | '/house-rules'
-  id: '__root__' | '/' | '/guide' | '/house-rules'
+  to: '/' | '/appliance-guide' | '/house-rules'
+  id: '__root__' | '/' | '/appliance-guide' | '/house-rules'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  GuideRoute: typeof GuideRoute
+  ApplianceGuideRoute: typeof ApplianceGuideRoute
   HouseRulesRoute: typeof HouseRulesRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/house-rules': {
-      id: '/house-rules'
-      path: '/house-rules'
-      fullPath: '/house-rules'
-      preLoaderRoute: typeof HouseRulesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/guide': {
-      id: '/guide'
-      path: '/guide'
-      fullPath: '/guide'
-      preLoaderRoute: typeof GuideRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/': {
       id: '/'
       path: '/'
@@ -82,12 +68,26 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/appliance-guide': {
+      id: '/appliance-guide'
+      path: '/appliance-guide'
+      fullPath: '/appliance-guide'
+      preLoaderRoute: typeof ApplianceGuideRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/house-rules': {
+      id: '/house-rules'
+      path: '/house-rules'
+      fullPath: '/house-rules'
+      preLoaderRoute: typeof HouseRulesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  GuideRoute: GuideRoute,
+  ApplianceGuideRoute: ApplianceGuideRoute,
   HouseRulesRoute: HouseRulesRoute,
 }
 export const routeTree = rootRouteImport

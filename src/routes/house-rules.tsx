@@ -80,7 +80,7 @@ function HouseRules() {
           </Link>
           <div className="flex items-center gap-2">
             <Link
-              to="/guide"
+              to="/appliance-guide"
               className="hidden sm:inline-flex text-[11px] font-medium uppercase tracking-[0.25em] border border-ink/20 px-4 py-2 rounded-full hover:bg-ink hover:text-cream transition-colors"
             >
               Appliances
@@ -180,7 +180,7 @@ function HouseRules() {
       <footer className="px-6 md:px-10 py-10 border-t border-ink/10">
         <div className="max-w-[1400px] mx-auto flex flex-wrap items-center justify-between gap-4 text-[11px] tracking-[0.25em] uppercase text-ink/40">
           <span>Villa Ledu · Koh Samui</span>
-          <Link to="/guide" className="hover:text-ink transition-colors">
+          <Link to="/appliance-guide" className="hover:text-ink transition-colors">
             Appliance Guide →
           </Link>
         </div>

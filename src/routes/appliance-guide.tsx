@@ -18,7 +18,7 @@ import inductionFig from "@/assets/guide/induction-stove.png";
 import dishwasherFig from "@/assets/guide/dishwasher.png";
 import washingMachineFig from "@/assets/guide/washing-machine.png";
 
-export const Route = createFileRoute("/guide")({
+export const Route = createFileRoute("/appliance-guide")({
   head: () => ({
     meta: [
       { title: "Guest Guide · Appliances — Villa Ledu" },

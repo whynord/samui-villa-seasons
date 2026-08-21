@@ -1,14 +1,21 @@
 import { useCallback, useEffect, useState } from "react";
 import { galleryItems } from "@/lib/gallery";
 
+/** How many photos to show before the "view all" reveal. */
+const INITIAL_VISIBLE = 6;
+
 /**
  * Editorial masonry gallery.
- * Every image in src/assets/gallery/ is rendered — no fixed slots.
- * Click a photo to open the full-screen viewer (arrow keys / swipe to move).
+ * Shows a first set of photos, then reveals the rest on demand via a
+ * button — so the page doesn't open with the full set overwhelming the
+ * visitor. Click a photo to open the full-screen viewer.
  */
 export function GalleryMasonry() {
   const [open, setOpen] = useState<number | null>(null);
+  const [showAll, setShowAll] = useState(false);
   const total = galleryItems.length;
+  const hiddenCount = Math.max(0, total - INITIAL_VISIBLE);
+  const visibleItems = showAll ? galleryItems : galleryItems.slice(0, INITIAL_VISIBLE);
 
   const close = useCallback(() => setOpen(null), []);
   const step = useCallback(
@@ -38,7 +45,7 @@ export function GalleryMasonry() {
   return (
     <>
       <div className="columns-1 sm:columns-2 lg:columns-3 gap-4 md:gap-6 [column-fill:_balance]">
-        {galleryItems.map((item, i) => (
+        {visibleItems.map((item, i) => (
           <figure
             key={item.src}
             className="group mb-4 md:mb-6 break-inside-avoid bg-white border border-ink5 overflow-hidden cursor-zoom-in"
@@ -63,6 +70,18 @@ export function GalleryMasonry() {
           </figure>
         ))}
       </div>
+
+      {hiddenCount > 0 ? (
+        <div className="mt-12 md:mt-16 flex justify-center">
+          <button
+            type="button"
+            onClick={() => setShowAll((v) => !v)}
+            className="text-[11px] font-medium uppercase tracking-[0.25em] border border-ink/20 px-6 py-3 rounded-full hover:bg-ink hover:text-cream transition-colors"
+          >
+            {showAll ? "Show fewer" : `View all ${hiddenCount} photos`}
+          </button>
+        </div>
+      ) : null}
 
       {active ? (
         <div
