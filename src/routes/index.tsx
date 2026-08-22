@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import { useServerFn } from "@tanstack/react-start";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { Menu, X } from "lucide-react";
 
 import logo from "@/assets/villa-ledu-logo.png";
 import heroAerial from "@/assets/hero-aerial.jpg";
@@ -148,6 +149,7 @@ function Index() {
   const heroVideo = useRef<HTMLVideoElement>(null);
   const heroTitle = useRef<HTMLHeadingElement>(null);
   const [navSolid, setNavSolid] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   const submitInquiry = useServerFn(sendInquiry);
   const [formStatus, setFormStatus] = useState<
     "idle" | "loading" | "success" | "error"
@@ -240,14 +242,14 @@ function Index() {
 
       {/* Nav */}
       <nav
-        className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
+        className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 bg-cream/90 backdrop-blur-md border-b border-ink/5 md:bg-transparent md:backdrop-blur-0 md:border-transparent md:transition-all md:duration-500 ${
           navSolid
-            ? "bg-cream/85 backdrop-blur-md border-b border-ink/5 py-4"
-            : "py-6"
+            ? "md:bg-cream/85 md:backdrop-blur-md md:border-b md:border-ink/5"
+            : ""
         }`}
       >
-        <div className="max-w-[1400px] mx-auto px-6 md:px-10 flex items-center justify-between">
-          <a href="#top" className="flex items-center gap-3">
+        <div className={`max-w-[1400px] mx-auto px-6 md:px-10 flex items-center justify-between py-4 md:${navSolid ? "py-4" : "py-6"}`}>
+          <a href="#top" className="flex items-center gap-3" onClick={() => setMenuOpen(false)}>
             <img src={logo} alt="Villa Ledu" className="h-8 w-auto" />
             <span className="hidden sm:flex flex-col leading-none">
               <span className="font-serif italic text-lg">Villa Ledu</span>
@@ -260,15 +262,36 @@ function Index() {
             <a href="#philosophy" className="hover:text-summer transition-colors">Philosophy</a>
             <a href="#villas" className="hover:text-rainy transition-colors">Villas</a>
             <a href="#explore" className="hover:text-winter transition-colors">Explore</a>
-            <a href="#contact" className="hover:opacity-60 transition-opacity">Contact</a>
+            <a href="#contact" className="hover:opacity-60 transition-colors">Contact</a>
           </div>
-          <a
-            href="#contact"
-            className="text-[11px] font-medium uppercase tracking-[0.25em] border border-ink/20 px-4 py-2 rounded-full hover:bg-ink hover:text-cream transition-colors"
-          >
-            Inquire
-          </a>
+          <div className="flex items-center gap-3">
+            <a
+              href="#contact"
+              className="hidden md:inline-block text-[11px] font-medium uppercase tracking-[0.25em] border border-ink/20 px-4 py-2 rounded-full hover:bg-ink hover:text-cream transition-colors"
+            >
+              Inquire
+            </a>
+            <button
+              type="button"
+              aria-label="Open menu"
+              aria-expanded={menuOpen}
+              onClick={() => setMenuOpen((v) => !v)}
+              className="md:hidden text-ink p-1"
+            >
+              {menuOpen ? <X size={22} /> : <Menu size={22} />}
+            </button>
+          </div>
         </div>
+
+        {menuOpen ? (
+          <div className="md:hidden border-t border-ink/10 bg-cream px-6 py-2 flex flex-col">
+            <a href="#philosophy" onClick={() => setMenuOpen(false)} className="py-3 text-[11px] font-medium uppercase tracking-[0.25em] border-b border-ink/5 hover:text-summer transition-colors">Philosophy</a>
+            <a href="#villas" onClick={() => setMenuOpen(false)} className="py-3 text-[11px] font-medium uppercase tracking-[0.25em] border-b border-ink/5 hover:text-rainy transition-colors">Villas</a>
+            <a href="#explore" onClick={() => setMenuOpen(false)} className="py-3 text-[11px] font-medium uppercase tracking-[0.25em] border-b border-ink/5 hover:text-winter transition-colors">Explore</a>
+            <a href="#contact" onClick={() => setMenuOpen(false)} className="py-3 text-[11px] font-medium uppercase tracking-[0.25em] border-b border-ink/5 hover:opacity-60 transition-colors">Contact</a>
+            <a href="#contact" onClick={() => setMenuOpen(false)} className="my-3 text-center text-[11px] font-medium uppercase tracking-[0.25em] border border-ink/20 px-4 py-3 rounded-full hover:bg-ink hover:text-cream transition-colors">Inquire</a>
+          </div>
+        ) : null}
       </nav>
 
       {/* Hero */}

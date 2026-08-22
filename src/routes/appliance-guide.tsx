@@ -9,6 +9,8 @@ import {
   WashingMachine,
   AlertTriangle,
   ChevronRight,
+  Menu,
+  X,
 } from "lucide-react";
 
 import logo from "@/assets/villa-ledu-logo.png";
@@ -72,6 +74,7 @@ const accentBg = {
 
 function Guide() {
   const [active, setActive] = useState<string>("aircon");
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -94,7 +97,7 @@ function Guide() {
       {/* Nav */}
       <nav className="sticky top-0 z-40 bg-cream/85 backdrop-blur-md border-b border-ink/5">
         <div className="max-w-[1400px] mx-auto px-6 md:px-10 py-4 flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-3">
+          <Link to="/" className="flex items-center gap-3" onClick={() => setMenuOpen(false)}>
             <img src={logo} alt="Villa Ledu" className="h-8 w-auto" />
             <span className="hidden sm:flex flex-col leading-none">
               <span className="font-serif italic text-lg">Villa Ledu</span>
@@ -103,10 +106,10 @@ function Guide() {
               </span>
             </span>
           </Link>
-          <div className="flex items-center gap-2">
+          <div className="hidden sm:flex items-center gap-2">
             <Link
               to="/house-rules"
-              className="hidden sm:inline-flex text-[11px] font-medium uppercase tracking-[0.25em] border border-ink/20 px-4 py-2 rounded-full hover:bg-ink hover:text-cream transition-colors"
+              className="text-[11px] font-medium uppercase tracking-[0.25em] border border-ink/20 px-4 py-2 rounded-full hover:bg-ink hover:text-cream transition-colors"
             >
               House Rules
             </Link>
@@ -117,7 +120,27 @@ function Guide() {
               ← Villa
             </Link>
           </div>
+          <button
+            type="button"
+            aria-label="Open menu"
+            aria-expanded={menuOpen}
+            onClick={() => setMenuOpen((v) => !v)}
+            className="sm:hidden text-ink p-1"
+          >
+            {menuOpen ? <X size={22} /> : <Menu size={22} />}
+          </button>
         </div>
+
+        {menuOpen ? (
+          <div className="sm:hidden border-t border-ink/10 bg-cream px-6 py-2 flex flex-col">
+            <Link to="/house-rules" onClick={() => setMenuOpen(false)} className="py-3 text-[11px] font-medium uppercase tracking-[0.25em] border-b border-ink/5 hover:text-summer transition-colors">
+              House Rules
+            </Link>
+            <Link to="/" onClick={() => setMenuOpen(false)} className="py-3 text-[11px] font-medium uppercase tracking-[0.25em] border-b border-ink/5 hover:opacity-60 transition-colors">
+              ← Villa
+            </Link>
+          </div>
+        ) : null}
       </nav>
 
       {/* Hero */}
