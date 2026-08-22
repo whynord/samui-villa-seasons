@@ -1,6 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
-import { useServerFn } from "@tanstack/react-start";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Menu, X } from "lucide-react";
@@ -12,7 +11,6 @@ import villaRainy from "@/assets/villa-rainy.jpg";
 import villaWinter from "@/assets/villa-winter.jpg";
 import experienceEvening from "@/assets/experience-evening.jpg";
 import { GalleryMasonry } from "@/components/gallery-masonry";
-import { sendInquiry } from "@/lib/inquiry.functions";
 
 
 export const Route = createFileRoute("/")({
@@ -150,10 +148,6 @@ function Index() {
   const heroTitle = useRef<HTMLHeadingElement>(null);
   const [navSolid, setNavSolid] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const submitInquiry = useServerFn(sendInquiry);
-  const [formStatus, setFormStatus] = useState<
-    "idle" | "loading" | "success" | "error"
-  >("idle");
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -485,81 +479,42 @@ function Index() {
             within one working day with availability and a tailored quote.
           </p>
 
-          <form
-            className="reveal grid grid-cols-1 md:grid-cols-2 gap-4 text-left"
-            onSubmit={async (e) => {
-              e.preventDefault();
-              const form = e.currentTarget as HTMLFormElement;
-              const fd = new FormData(form);
-
-              setFormStatus("loading");
-              try {
-                const res = await submitInquiry({
-                  data: {
-                    name: String(fd.get("name") ?? ""),
-                    email: String(fd.get("email") ?? ""),
-                    stay: String(fd.get("stay") ?? ""),
-                    message: String(fd.get("message") ?? ""),
-                  },
-                });
-                if (res.ok) {
-                  form.reset();
-                  setFormStatus("success");
-                } else {
-                  setFormStatus("error");
-                }
-              } catch {
-                setFormStatus("error");
-              }
-            }}
-          >
-
-            <input
-              required
-              name="name"
-              placeholder="Full name"
-              className="bg-transparent border-b border-ink/20 py-4 px-1 text-sm placeholder:text-ink/40 focus:outline-none focus:border-ink"
-            />
-            <input
-              required
-              type="email"
-              name="email"
-              placeholder="Email"
-              className="bg-transparent border-b border-ink/20 py-4 px-1 text-sm placeholder:text-ink/40 focus:outline-none focus:border-ink"
-            />
-            <select
-              name="stay"
-              className="md:col-span-2 bg-transparent border-b border-ink/20 py-4 px-1 text-sm text-ink/70 focus:outline-none focus:border-ink"
+          <div className="reveal flex flex-col items-center gap-6">
+            <a
+              href="mailto:villaledusamui@gmail.com?subject=Villa%20Ledu%20inquiry"
+              className="group w-full max-w-md text-center border border-ink/15 rounded-2xl px-8 py-7 bg-white/40 hover:bg-ink hover:text-cream transition-colors duration-500"
             >
-              <option>Short stay (3–14 nights)</option>
-              <option>Long stay (15–29 nights)</option>
-              <option>Residency (30+ nights)</option>
-            </select>
-            <textarea
-              name="message"
-              rows={3}
-              placeholder="Anything we should know?"
-              className="md:col-span-2 bg-transparent border-b border-ink/20 py-4 px-1 text-sm placeholder:text-ink/40 focus:outline-none focus:border-ink resize-none"
-            />
-            <button
-              type="submit"
-              disabled={formStatus === "loading"}
-              className="md:col-span-2 mt-8 mx-auto bg-ink text-cream px-12 py-4 text-[11px] uppercase tracking-[0.3em] font-medium hover:bg-winter transition-colors duration-500 disabled:opacity-50"
-            >
-              {formStatus === "loading" ? "Sending…" : "Send Inquiry"}
-            </button>
+              <span className="block text-[10px] tracking-[0.3em] uppercase text-ink/40 mb-3 group-hover:text-cream/60">
+                Email us
+              </span>
+              <span className="font-serif text-xl md:text-2xl">
+                villaledusamui@gmail.com
+              </span>
+            </a>
 
-            {formStatus === "success" && (
-              <p className="md:col-span-2 text-center text-sm text-winter">
-                Thank you — we'll be in touch shortly.
-              </p>
-            )}
-            {formStatus === "error" && (
-              <p className="md:col-span-2 text-center text-sm text-summer">
-                Something went wrong — please email villaledusamui@gmail.com directly.
-              </p>
-            )}
-          </form>
+            <div className="flex flex-col sm:flex-row gap-4 w-full max-w-md">
+              <a
+                href="tel:+66843431144"
+                className="flex-1 text-center border border-ink/15 rounded-2xl px-6 py-5 hover:bg-ink hover:text-cream transition-colors duration-500"
+              >
+                <span className="block text-[10px] tracking-[0.3em] uppercase text-ink/40 mb-2">
+                  Call
+                </span>
+                <span className="font-serif text-lg">+66 8 4343 1144</span>
+              </a>
+              <a
+                href="https://www.instagram.com/villaledu_samui"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1 text-center border border-ink/15 rounded-2xl px-6 py-5 hover:bg-ink hover:text-cream transition-colors duration-500"
+              >
+                <span className="block text-[10px] tracking-[0.3em] uppercase text-ink/40 mb-2">
+                  Message
+                </span>
+                <span className="font-serif text-lg">Instagram</span>
+              </a>
+            </div>
+          </div>
         </div>
       </section>
 
